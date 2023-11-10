@@ -1,0 +1,131 @@
+<div class="container">
+    <div class="card parent">
+        <div class="card-header">
+            <h4>Create Form Submission Request</h4>
+            <div class="card-actions">
+                <!-- <a [routerLink]="null" class="btn btn-primary"><i class="fal fa-plus"></i> Add</a> -->
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <form class="animate-labels-form">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <select class="floating-select" onclick="this.setAttribute('value', this.value);"
+                                        value="">
+                                        <option value=""></option>
+                                        <option value="1">Alabama</option>
+                                        <option value="2">Boston</option>
+                                        <option value="3">Ohaio</option>
+                                        <option value="4">New York</option>
+                                        <option value="5">Washington</option>
+                                    </select>
+                                    <span class="highlight"></span>
+                                    <label>Submission Type</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <select class="floating-select" onclick="this.setAttribute('value', this.value);"
+                                        value="">
+                                        <option value=""></option>
+                                        <option value="1">Alabama</option>
+                                        <option value="2">Boston</option>
+                                        <option value="3">Ohaio</option>
+                                        <option value="4">New York</option>
+                                        <option value="5">Washington</option>
+                                    </select>
+                                    <span class="highlight"></span>
+                                    <label>Form Type</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <select class="floating-select" onclick="this.setAttribute('value', this.value);"
+                                        value="">
+                                        <option value=""></option>
+                                        <option value="1">Alabama</option>
+                                        <option value="2">Boston</option>
+                                        <option value="3">Ohaio</option>
+                                        <option value="4">New York</option>
+                                        <option value="5">Washington</option>
+                                    </select>
+                                    <span class="highlight"></span>
+                                    <label>Lender</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <select class="floating-select" onclick="this.setAttribute('value', this.value);"
+                                        value="">
+                                        <option value=""></option>
+                                        <option value="1">Alabama</option>
+                                        <option value="2">Boston</option>
+                                        <option value="3">Ohaio</option>
+                                        <option value="4">New York</option>
+                                        <option value="5">Washington</option>
+                                    </select>
+                                    <span class="highlight"></span>
+                                    <label>Industry</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <select class="floating-select" onclick="this.setAttribute('value', this.value);"
+                                        value="">
+                                        <option value=""></option>
+                                        <option value="1">Alabama</option>
+                                        <option value="2">Boston</option>
+                                        <option value="3">Ohaio</option>
+                                        <option value="4">New York</option>
+                                        <option value="5">Washington</option>
+                                    </select>
+                                    <span class="highlight"></span>
+                                    <label>State</label>
+                                </div>
+                            </div>
+                            <div class="w-full"></div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input onclick="(this.type='date')" class="form-control" placeholder=" " />
+                                    <label for="exampleInputEmail1" class="form-label">Intended Date of Use</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input readonly [formControl]="dateStringControl" onclick="(this.type='date')"
+                                        id="date-string" type="date" class="form-control" placeholder=" " />
+                                    <label class="form-label">Due Date</label>
+                                </div>
+                            </div>
+                            <div class="col-md-12 my-3">
+                                <div class="custom-dropzone" ngx-dropzone [accept]="'*'" (change)="onSelect($event)">
+                                    <ngx-dropzone-label>
+                                        <div class="drag-dorp-label">
+                                            <i class="far fa-cloud-upload"></i>
+                                            <p>Drag & Drop</p>
+                                            <p>OR</p>
+                                            <span>Browse</span>
+                                        </div>
+                                    </ngx-dropzone-label>
+                                    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview"
+                                        *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)"
+                                        [ngClass]="getFileType(f.type)">
+                                        <ngx-dropzone-label [ngClass]="getFileType(f.type)">
+                                            {{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                                    </ngx-dropzone-image-preview>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-end mt-3">
+                            <button routerLink="/provider/form-submissions-detail" type="submit"
+                                class="btn btn-primary">Create</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

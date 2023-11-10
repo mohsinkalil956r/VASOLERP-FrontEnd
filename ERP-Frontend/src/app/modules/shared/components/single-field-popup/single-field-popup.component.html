@@ -1,0 +1,26 @@
+<div class="single-field-sidebar">
+    <span class="close-single-field-sidebar" (click)="closeRightSidebar()"><i class="fal fa-times"></i></span>
+    <div>
+        <h4>{{Id ? "Update " + label : "Add " + label}}</h4>
+        <form class="animate-labels-form" [formGroup]="form">
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder=" " formControlName="name" [readOnly]="isLoading">
+                <label>Enter {{label}}</label>
+                <div *ngIf="(form.controls['name'].dirty || form.controls['name'].touched)">
+                    <div class="error" *ngIf="form.controls['name'].errors?.['required']">
+                        Enter {{label}}
+                    </div>
+                    <div class="error" *ngIf="form.controls['name'].errors?.['entityExists']">
+                        {{label}} already exists with this name
+                    </div>
+                </div>
+            </div>
+            <div class="text-end mt-auto">
+                <button class="btn btn-outline-danger" (click)="closeRightSidebar()" [disabled]="isLoading">
+                    Cancel
+                </button>
+                <button class="btn btn-primary ms-3" (click)="onSubmit()" [disabled]="isLoading || form.invalid" ><i *ngIf="isLoading" i class="fa fa-spinner fa-spin"></i> {{isLoading ? "Loading..." : (Id ? "Update" : "Add")}}</button>
+            </div>
+        </form>
+    </div>
+</div>

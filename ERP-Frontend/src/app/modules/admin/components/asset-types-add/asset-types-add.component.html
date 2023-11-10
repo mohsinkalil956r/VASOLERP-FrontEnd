@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="card parent">
+        <div class="card-header">
+            <h4>{{assetypeId ? "Update Asset type" : "Add Asset type"}}</h4>
+            <div class="card-actions">
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <form class="animate-labels-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="datetime-local" class="form-control" placeholder=" " formControlName="name" [readOnly]="isLoading" />
+                                    <label for="email" class="form-label">Name</label>
+                                    <div *ngIf="(form.controls['name'].dirty || form.controls['name'].touched)">
+                                        <div class="error" *ngIf="form.controls['name'].errors?.['required']">
+                                            Enter asset type name.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder=" " formControlName="Comments" [readOnly]="" />
+                                    <label class="form-label">Comments</label>
+                                    <!-- <div *ngIf="(form.controls[''].dirty || form.controls[''].touched)">
+                                        <div class="error" *ngIf="form.controls[''].errors?.['required']">
+                                            Enter comments.
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-end mt-3">
+                            <button type="submit" class="btn btn-primary"[disabled]="form.invalid ||isLoading" ><i *ngIf="isLoading" i class="fa fa-spinner fa-spin"></i> {{isLoading ? "Loading..." : (assetypeId? "Update" : "Add")}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

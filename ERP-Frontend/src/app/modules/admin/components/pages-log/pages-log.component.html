@@ -1,0 +1,199 @@
+<div class="container">
+    <div class="card parent">
+        <div class="card-header">
+            <h4>Pages Log</h4>
+            <div class="card-actions">
+                <a [routerLink]="null" class="btn btn-primary"><i class="fal fa-plus"></i> Add</a>
+            </div>
+        </div>
+        <div class="card-body">
+            <!----------------------------------- ADMIN MODULE PAGES LINKS ----------------------------------->
+            <div class="bg-info">
+                <h5 class="text-white p-2">ADMIN MODULE</h5>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="bg-light d-flex align-content-center p-3">
+                        <h4>Providers</h4>
+                        <hr />
+                    </div>
+                    <ul class="list mt-4">
+                        <li><a routerLink="/admin/dashboard">Dashboard</a></li>
+                        <li><a routerLink="/admin/providers-list">providers list</a></li>
+                        <li><a routerLink="/admin/providers-add">providers add / Create</a></li>
+                        <li><a routerLink="/admin/providers-view">providers View / Detail</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <div class="bg-light d-flex align-content-center p-3">
+                        <h4>Submissions</h4>
+                        <hr />
+                    </div>
+                    <ul class="list mt-4">
+                        <li><a routerLink="/admin/providers-form-submission">providers form submission</a></li>
+                        <li><a routerLink="/admin/providers-submission-details">providers submission details</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <div class="bg-light d-flex align-content-center p-3">
+                        <h4>Consolidation</h4>
+                        <hr />
+                    </div>
+                    <ul class="list mt-4">
+                        <li><a routerLink="/admin/providers-form-consolidation">Form consolidation</a></li>
+                        <li><a routerLink="/admin/consolidation-request">Consolidation request</a></li>
+                        <!-- <li><a routerLink="/admin/consolidation-add">Consolidation Add</a></li> -->
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <div class="bg-light d-flex align-content-center p-3">
+                        <h4>Lenders</h4>
+                        <hr />
+                    </div>
+                    <ul class="list mt-4">
+                        <li><a routerLink="/admin/lenders-list">lenders list</a></li>
+                        <li><a routerLink="/admin/lenders-add">lenders Add / Create</a></li>
+                        <li><a routerLink="/admin/lenders-view">lenders-View / Detail</a></li>
+                        <li><a routerLink="/admin/lenders-mbr-list">lenders mbr list</a></li>
+                        <li><a routerLink="/admin/lenders-mbr-request">lenders mbr request</a></li>
+                        <li><a routerLink="/admin/lenders-waive-list">lenders waive list</a></li>
+                        <!-- <li><a routerLink="/admin/lenders-waive-request">lenders waive request</a></li> -->
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <div class="bg-light d-flex align-content-center p-3">
+                        <h4>Users</h4>
+                        <hr />
+                    </div>
+                    <ul class="list mt-4">
+                        <li><a routerLink="/admin/user-list">user list</a></li>
+                        <li><a routerLink="/admin/user-add">user add</a></li>
+                        <li><a routerLink="/admin/user-view">user View</a></li>
+                        <li><a routerLink="/admin/user-profile">user Profile</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="bg-light d-flex align-content-center p-3">
+                        <h4>Product / Orgnization</h4>
+                        <hr />
+                    </div>
+                    <ul class="list mt-4">
+                        <li><a routerLink="/admin/products-list">Product List</a></li>
+                        <li><a routerLink="/admin/orgnization-list">Orginization List</a></li>
+                        <li><a routerLink="/admin/assignments">Assignments</a></li>
+                    </ul>
+                </div>
+
+
+            </div>
+            <!----------------------------------- LENDER MODULE PAGES LINKS ----------------------------------->
+            <div class="bg-info">
+                <h5 class="text-white p-2">LENDER MODULE</h5>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="bg-light d-flex align-content-center p-3">
+                        <h4>MBRs</h4>
+                        <hr />
+                    </div>
+                    <ul class="list mt-4">
+                        <li><a routerLink="/lender/dashboard-lender">Lender Dashboard</a></li>
+                        <li><a routerLink="/lender/products-mbr">Products MBRs</a></li>
+                        <li><a routerLink="/lender/mbr-request">MBR Request </a></li>
+                        <li><a routerLink="/lender/mbr-request-detail">MBR Request detail</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <div class="bg-light d-flex align-content-center p-3">
+                        <h4>Submissions</h4>
+                        <hr />
+                    </div>
+                    <ul class="list mt-4">
+                        <li><a routerLink="/lender/form-submission">Form Submission </a></li>
+                        <li><a routerLink="/lender/form-submission-detail">Form Submission Detail </a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <div class="bg-light d-flex align-content-center p-3">
+                        <h4>Waiver</h4>
+                        <hr />
+                    </div>
+                    <ul class="list mt-4">
+                        <li><a routerLink="/lender/waiver-request">Waiver Request </a></li>
+                        <li><a routerLink="/lender/waiver-request-detail">Waiver Detail </a></li>
+                    </ul>
+                </div>
+            </div>
+            <!----------------------------------- PROVIDER MODULE PAGES LINKS ----------------------------------->
+            <div class="bg-info">
+                <h5 class="text-white p-2">PROVIDER MODULE</h5>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="bg-light d-flex align-content-center p-3">
+                        <h4>Provider</h4>
+                        <hr />
+                    </div>
+                    <ul class="list mt-4">
+                        <li><a routerLink="/provider/dashboard-provider">Provider Dashboard</a></li>
+                        <li><a routerLink="/provider/mbr-list">MBR List </a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <div class="bg-light d-flex align-content-center p-3">
+                        <h4>Consolidation</h4>
+                        <hr />
+                    </div>
+                    <ul class="list mt-4">
+                        <li><a routerLink="/provider/form-consolidaton">Consolidation List</a></li>
+                        <li><a routerLink="/provider/form-consolidaton-create">Consolidation Create</a></li>
+                        <li><a routerLink="/provider/form-consolidaton-detail">Consolidation Detail</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <div class="bg-light d-flex align-content-center p-3">
+                        <h4>Submissions</h4>
+                        <hr />
+                    </div>
+                    <ul class="list mt-4">
+                        <li><a routerLink="/provider/form-submissions">Submissions List</a></li>
+                        <li><a routerLink="/provider/form-submissions-create">Submissions Create</a></li>
+                        <li><a routerLink="/provider/form-submissions-detail">Submissions Detail</a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="bg-info">
+                <h5 class="text-white p-2">COMMON PAGES</h5>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="bg-light d-flex align-content-center p-3">
+                        <h4>Pages</h4>
+                    </div>
+                    <ul class="list mt-4">
+                        <li><a routerLink="/login">login</a></li>
+                        <li><a routerLink="/forgot-password">forgot password</a></li>
+                        <li><a routerLink="/verify-email">verify email</a></li>
+                        <li><a routerLink="/create-new-password">create new passwordl</a></li>
+                        <li><a routerLink="/change-password">change passwordl</a></li>
+                        <li><a routerLink="/not-found">not found / 404</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <div class="bg-light d-flex align-content-center p-3">
+                        <h4>Theme</h4>
+                        <hr />
+                    </div>
+                    <ul class="list mt-4">
+                        <li><a routerLink="/admin/pages">Pages Log</a></li>
+                        <li><a routerLink="/admin/theme">Theme Components</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

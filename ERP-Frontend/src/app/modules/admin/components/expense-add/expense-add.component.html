@@ -1,0 +1,91 @@
+<div class="container">
+    <div class="card parent">
+        <div class="card-header">
+            <div style="display: flex; align-items: center; margin: 5px;">
+                <i class="fal fa-credit-card" style="font-size: 20px;"></i>
+                <h4 style="position: relative; display: inline-block; margin: 12px;">{{expenseId ? "Update Expense" : "Add Expense"}}</h4>
+              </div>
+            <div class="card-actions">
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <form class="animate-labels-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="date" class="form-control" placeholder=" " formControlName="expenseDate" [readOnly]="isLoading" />
+                                    <label class="form-label">Expense Date</label>
+                                    <div *ngIf="(form.controls['expenseDate'].dirty || form.controls['expenseDate'].touched)">
+                                        <div class="error" *ngIf="form.controls['expenseDate'].errors?.['required']">
+                                            Select Expense Date
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <app-custom-dropdown valueField="id" displayField="name" [control]="form.controls['expenseTypeId']" serviceType="expenseType" (valueChanged)="updateExpenseTypeLabel($event)"/>
+                                    <label class="form-label">{{ expenseTypeLabel }}</label>
+                                    <div *ngIf="(form.controls['expenseTypeId'].dirty || form.controls['expenseTypeId'].touched)">
+                                        <div class="error" *ngIf="form.controls['expenseTypeId'].errors?.['required']">
+                                            Select Expense Type
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder=" " formControlName="description" [readOnly]="isLoading" />
+                                    <label class="form-label">Description</label>
+                                    <div *ngIf="(form.controls['description'].dirty || form.controls['description'].touched)">
+                                        <div class="error" *ngIf="form.controls['description'].errors?.['required']">
+                                            Enter description
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="number" class="form-control" placeholder=" " formControlName="amount" [readOnly]="isLoading" />
+                                    <label class="form-label">Amount</label>
+                                    <div *ngIf="(form.controls['amount'].dirty || form.controls['amount'].touched)">
+                                        <div class="error" *ngIf="form.controls['amount'].errors?.['required']">
+                                            Enter amount
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <app-custom-dropdown valueField="id" displayField="name" [control]="form.controls['paymentModeId']" serviceType="paymentMode" (valueChanged)="updatePaymentModeLabel($event)"/>
+                                    <label class="form-label">{{paymentModeLabel}}</label>
+                                    <div *ngIf="(form.controls['paymentModeId'].dirty || form.controls['paymentModeId'].touched)">
+                                        <div class="error" *ngIf="form.controls['paymentModeId'].errors?.['required']">
+                                            Select Payment Mode
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <ng-container *ngIf="expenseId; else uploadData">
+                                <div class="row" *ngIf="requestData && requestData.documents.length">
+                                    <app-attachments-group [attachments]="requestData.documents" />
+                                </div>
+                            </ng-container> -->
+                            <!-- <ng-template #uploadData> -->
+                                <div class="col-md-12 my-3">
+                                    <app-upload-documents (uploadingEvent)="uploadingEventHandler($event)"></app-upload-documents>
+                                </div>
+                            <!-- </ng-template> -->
+                        </div>
+                        <div class="text-end mt-3">
+                            <button type="button" class="btn btn-primary" (click)="cancel()" style="margin-right: 10px;">Cancel</button>
+                            <button type="submit" class="btn btn-primary"[disabled]="form.invalid ||isLoading" ><i *ngIf="isLoading" i class="fa fa-spinner fa-spin"></i> {{isLoading ? "Loading..." : (expenseId? "Update" : "Add")}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

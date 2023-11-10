@@ -1,0 +1,150 @@
+<div class="container">
+    <div class="card parent">
+        <div class="card-header">
+
+            <div style="display: flex; align-items: center; margin: 5px;">
+                <i class="fal fa-share-alt" style="font-size: 20px;"></i>
+                <h4 style="position: relative; display: inline-block; margin: 12px;">{{projectId ? "Update Project" : "Add Project"}}</h4>
+            </div>
+
+            <!-- <h4>{{projectId ? "Update Project" : "Add Project"}}</h4> -->
+            <div class="card-actions">
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <form class="animate-labels-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+                        <div class="row">
+                            <!-- <div class="col-md-6">
+                                <div class="form-group"><app-custom-dropdown valueField="id" displayField="name" [control]="form.controls['clientId']" serviceType="client" />
+                                    <label class="form-label">Client</label>
+                                    <div *ngIf="(form.controls['clientId'].dirty || form.controls['clientId'].touched)">
+                                        <div class="error" *ngIf="form.controls['clientId'].errors?.['required']">
+                                            Select Client
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control invalid" placeholder=" " formControlName="name" [readOnly]="isLoading" />
+                                    <label class="form-label">Project Name</label>
+                                    <div *ngIf="(form.controls['name'].dirty || form.controls['name'].touched)">
+                                        <div class="error" *ngIf="form.controls['name'].errors?.['required']">
+                                            Enter Project Name
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="date" class="form-control" placeholder="plannedCompletedAt" formControlName="plannedCompletedAt" [readOnly]="isLoading" />
+                                    <label class="form-label">Planned Completion At</label>
+                                    <div *ngIf="(form.controls['plannedCompletedAt'].dirty || form.controls['plannedCompletedAt'].touched)">
+                                        <div class="error" *ngIf="form.controls['plannedCompletedAt'].errors?.['required']">
+                                            Select Planned Completion Date
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="date" class="form-control" placeholder=" " formControlName="startDate" [readOnly]="isLoading" />
+                                    <label for="text" class="form-label">Started At</label>
+                                    <div *ngIf="(form.controls['startDate'].dirty || form.controls['startDate'].touched)">
+                                        <div class="error" *ngIf="form.controls['startDate'].errors?.['required']">
+                                            Select Start Date
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="date" class="form-control" placeholder=" " formControlName="completionDate" [readOnly]="isLoading" />
+                                    <label for="text" class="form-label">Completed At</label>
+                                    <div *ngIf="(form.controls['completionDate'].dirty || form.controls['completionDate'].touched)">
+                                        <div class="error" *ngIf="form.controls['completionDate'].errors?.['required']">
+                                            Select Complete Date
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                  <!-- Update displayField to "firstName" and change label -->
+                                  <app-custom-dropdown valueField="id" displayField="firstName" [control]="form.controls['clientId']" serviceType="clients" (valueChanged)="updateClientTypeLabel($event)"/>
+                                  <label class="form-label"> {{ clientNameLabel }}</label>
+                                  <div *ngIf="(form.controls['clientId'].dirty || form.controls['clientId'].touched)">
+                                    <div class="error" *ngIf="form.controls['clientId'].errors?.['required']">
+                                      Select Client.
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>  
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control invalid" placeholder=" " formControlName="location" [readOnly]="isLoading" />
+                                    <label class="form-label">Location</label>
+                                    <div *ngIf="(form.controls['location'].dirty || form.controls['location'].touched)">
+                                        <div class="error" *ngIf="form.controls['location'].errors?.['required']">
+                                           Enter Location
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="number" class="form-control invalid" placeholder=" " formControlName="budget" [readOnly]="isLoading" />
+                                    <label class="form-label">Estimated Budget</label>
+                                    <div *ngIf="(form.controls['budget'].dirty || form.controls['budget'].touched)">
+                                        <div class="error" *ngIf="form.controls['budget'].errors?.['required']">
+                                           Enter Budget
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                  <!-- Update displayField to "firstName" and change label -->
+                                  <app-custom-dropdown valueField="id" displayField="name" [control]="form.controls['statusId']" serviceType="statuses" (valueChanged)="updateStatusTypeLabel($event)"/>
+                                  <label class="form-label"> {{ StatusNameLabel }}</label>
+                                  <div *ngIf="(form.controls['statusId'].dirty || form.controls['statusId'].touched)">
+                                    <div class="error" *ngIf="form.controls['statusId'].errors?.['required']">
+                                      Select Project Status.
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control invalid" placeholder=" " formControlName="description" [readOnly]="isLoading" />
+                                    <label class="form-label">Project Description</label>
+                                    <div *ngIf="(form.controls['description'].dirty || form.controls['description'].touched)">
+                                        <div class="error" *ngIf="form.controls['description'].errors?.['required']">
+                                          Enter Project Description.
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 my-3">
+                                <app-upload-documents (uploadingEvent)="uploadingEventHandler($event)"></app-upload-documents>
+                            </div>
+                            <!-- <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="mb-3">
+                                        <label for="formFile" class="form-label"></label>
+                                        <input class="form-control" disabled type="file" id="formFile">
+                                      </div>
+                                </div>
+                            </div>     -->
+                            <div class="text-end mt-3">
+                                <button type="button" class="btn btn-primary" (click)="cancel()" style="margin-right: 10px;">Cancel</button>
+                                <button type="submit" class="btn btn-primary"[disabled]="form.invalid ||isLoading" ><i *ngIf="isLoading" i class="fa fa-spinner fa-spin"></i> {{isLoading ? "Loading..." : (projectId? "Update" : "Add")}}</button>
+                               </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+</div>

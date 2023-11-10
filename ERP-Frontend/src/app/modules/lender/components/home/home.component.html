@@ -1,0 +1,58 @@
+<main>
+    <div class="left-sidebar" app-left-sidebar></div>
+    <div class="main-container">
+        <app-main-navigation></app-main-navigation>
+        <section class="main-section">
+            <router-outlet></router-outlet>
+        </section>
+    </div>
+</main>
+<app-right-sidebar></app-right-sidebar>
+<div class="modal fade" id="uploadMbrDocument" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+            <div class="modal-header border-bottom-0 pb-0">
+                <h5 class="modal-title fw-bold fs-6" id="uploadMbrDocumentLabel"><i class="far fa-cloud-upload"></i>
+                    Upload MBR Document</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12 my-3">
+                    <div
+                      class="custom-dropzone custom-single-dropzone"
+                      ngx-dropzone
+                      [accept]="'*'"
+                      [multiple] = false
+                      (change)="onSelect($event)"
+                      
+                    >
+                      <ngx-dropzone-label>
+                        <div class="drag-dorp-label">
+                          <i class="far fa-cloud-upload"></i>
+                          <p>Drag & Drop Or <span>Browse</span></p>
+                        </div>
+                      </ngx-dropzone-label>
+                      <ngx-dropzone-image-preview
+                        ngProjectAs="ngx-dropzone-preview"
+                        *ngFor="let f of files"
+                        [file]="f"
+                        [removable]="true"
+                        (removed)="onRemove(f)"
+                        [ngClass]="getFileType(f.type)"
+                      >
+                        <ngx-dropzone-label [ngClass]="getFileType(f.type)">
+                          {{ f.name }} ({{ f.type }})</ngx-dropzone-label
+                        >
+                      </ngx-dropzone-image-preview>
+                    </div>
+                  </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>

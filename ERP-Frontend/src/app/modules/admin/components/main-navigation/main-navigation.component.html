@@ -1,0 +1,161 @@
+<!-- Left Sidebar Toggler -->
+<!-- <span
+  class="left-sidebar-toggle"
+  (click)="clickEvent()"
+  [ngClass]="status ? 'open' : ''"
+>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</span> -->
+<!-- Main Menu Nav -->
+<nav class="navbar navbar-expand-sm" aria-label="">
+    <div class="container-fluid">
+      <a *ngIf="userRole === 'Lender' || userRole === 'Provider'"  class="company-name" [routerLink]="null"
+        ><i class="fas fa-warehouse-alt"></i>
+        <span class="">{{userOrganization}}</span></a
+      >
+      <div
+        class="collapse navbar-collapse justify-content-end"
+        id="navbarsExample03"
+      >
+        <div class="notifications-dropdown dropdown">
+          <a
+            href="javascript;"
+            type="button"
+            class="dropdown-toggle"
+            data-bs-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <i class="fal fa-bell"></i>
+            <span class="has-notifications"></span>
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">
+              <h3 class="text-white">5 New</h3>
+              <p class="opacity-75">App Notifications</p>
+            </div>
+            <ul class="custom-scroll">
+              <li>
+                <div class="drop-item">
+                  <div class="icon">
+                    <i class="fal fa-bell"></i>
+                  </div>
+                  <div class="drop-item-text">
+                    <a [routerLink]="null">New Items notificaiton arrival</a>
+                    <span>02 hrs ago</span>
+                  </div>
+                  <a [routerLink]="null"> <i class="fal fa-angle-right"></i></a>
+                </div>
+              </li>
+              <li>
+                <div class="drop-item">
+                  <div class="icon">
+                    <i class="fal fa-bell"></i>
+                  </div>
+                  <div class="drop-item-text">
+                    <a [routerLink]="null">New Items notificaiton arrival</a>
+                    <span>02 hrs ago</span>
+                  </div>
+                  <a [routerLink]="null"> <i class="fal fa-angle-right"></i></a>
+                </div>
+              </li>
+              <li>
+                <div class="drop-item">
+                  <div class="icon">
+                    <i class="fal fa-bell"></i>
+                  </div>
+                  <div class="drop-item-text">
+                    <a [routerLink]="null">New Items notificaiton arrival</a>
+                    <span>02 hrs ago</span>
+                  </div>
+                  <a [routerLink]="null"> <i class="fal fa-angle-right"></i></a>
+                </div>
+              </li>
+              <li>
+                <div class="drop-item">
+                  <div class="icon">
+                    <i class="fal fa-bell"></i>
+                  </div>
+                  <div class="drop-item-text">
+                    <a [routerLink]="null">New Items notificaiton arrival</a>
+                    <span>02 hrs ago</span>
+                  </div>
+                  <a [routerLink]="null"> <i class="fal fa-angle-right"></i></a>
+                </div>
+              </li>
+              <li>
+                <div class="drop-item">
+                  <div class="icon">
+                    <i class="fal fa-bell"></i>
+                  </div>
+                  <div class="drop-item-text">
+                    <a [routerLink]="null">New Items notificaiton arrival</a>
+                    <span>02 hrs ago</span>
+                  </div>
+                  <a [routerLink]="null"> <i class="fal fa-angle-right"></i></a>
+                </div>
+              </li>
+              <li>
+                <div class="drop-item">
+                  <div class="icon">
+                    <i class="fal fa-bell"></i>
+                  </div>
+                  <div class="drop-item-text">
+                    <a [routerLink]="null">New Items notificaiton arrival</a>
+                    <span>02 hrs ago</span>
+                  </div>
+                  <a [routerLink]="null"> <i class="fal fa-angle-right"></i></a>
+                </div>
+              </li>
+              <li>
+                <div class="drop-item">
+                  <div class="icon">
+                    <i class="fal fa-bell"></i>
+                  </div>
+                  <div class="drop-item-text">
+                    <a [routerLink]="null">New Items notificaiton arrival</a>
+                    <span>02 hrs ago</span>
+                  </div>
+                  <a [routerLink]="null"> <i class="fal fa-angle-right"></i></a>
+                </div>
+              </li>
+              <li>
+                <div class="drop-item">
+                  <div class="icon">
+                    <i class="fal fa-bell"></i>
+                  </div>
+                  <div class="drop-item-text">
+                    <a [routerLink]="null">New Items notificaiton arrival</a>
+                    <span>02 hrs ago</span>
+                  </div>
+                  <a [routerLink]="null"> <i class="fal fa-angle-right"></i></a>
+                </div>
+              </li>
+              <li>
+                <div class="drop-item">
+                  <div class="icon">
+                    <i class="fal fa-bell"></i>
+                  </div>
+                  <div class="drop-item-text">
+                    <a [routerLink]="null">New Items notificaiton arrival</a>
+                    <span>02 hrs ago</span>
+                  </div>
+                  <a [routerLink]="null"> <i class="fal fa-angle-right"></i></a>
+                </div>
+              </li>
+            </ul>
+  
+            <div class="dropdown-footer">
+              <a [routerLink]="null">View All Notifications</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  

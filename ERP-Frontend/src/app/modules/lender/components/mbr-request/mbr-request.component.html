@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="card parent">
+        <div class="card-header">
+            <h4>MBR Request</h4>
+            <div class="card-actions">
+                <!-- <a [routerLink]="null" class="btn btn-primary"><i class="fal fa-plus"></i> Add</a> -->
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-8 col-md-10">
+                    <form class="animate-labels-form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <select class="floating-select" onclick="this.setAttribute('value', this.value);"
+                                        value="">
+                                        <option value=""></option>
+                                        <option value="1">Alabama</option>
+                                        <option value="2">Boston</option>
+                                        <option value="3">Ohaio</option>
+                                        <option value="4">New York</option>
+                                        <option value="5">Washington</option>
+                                    </select>
+                                    <span class="highlight"></span>
+                                    <label>Product</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" onclick="(this.type='date')"
+                                        placeholder=" ">
+                                    <label>Due Date</label>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <textarea class="form-control floating-textarea" placeholder=" "></textarea>
+                                    <label>Notes</label>
+                                </div>
+                            </div>
+                            <div class="col-md-12 my-3">
+                                <div class="custom-dropzone" ngx-dropzone [accept]="'*'" (change)="onSelect($event)">
+                                    <ngx-dropzone-label>
+                                        <div class="drag-dorp-label">
+                                            <i class="far fa-cloud-upload"></i>
+                                            <p>Drag & Drop</p>
+                                            <p>OR</p>
+                                            <span>Browse</span>
+                                        </div>
+                                    </ngx-dropzone-label>
+                                    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview"
+                                        *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)"
+                                        [ngClass]="getFileType(f.type)">
+                                        <ngx-dropzone-label [ngClass]="getFileType(f.type)">
+                                            {{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                                    </ngx-dropzone-image-preview>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-end mt-3">
+                            <button routerLink="/lender/mbr-request-detail" type="submit"
+                                class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                    <!-- <form class="form-animate" action="/file-upload" class="dropzone" id="my-awesome-dropzone">
+              <input type="file" name="file" />
+            </form> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

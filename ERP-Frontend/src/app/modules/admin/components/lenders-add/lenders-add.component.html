@@ -1,0 +1,139 @@
+<div class="container">
+  <div class="card parent">
+    <div class="card-header">
+      <h4>{{lenderId ? "Update Lender" : "Add Lender"}}</h4>
+      <div class="card-actions">
+        <!-- <a [routerLink]="null" class="btn btn-primary"><i class="fal fa-plus"></i> Add</a> -->
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-lg-8 col-md-10">
+          <form class="animate-labels-form" [formGroup]="lenderForm">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <input type="email" class="form-control" placeholder=" " formControlName="email" [readOnly]="lenderId || isLoading"/>
+                  <label for="email" class="form-label">Email address</label>
+                  <div *ngIf="(lenderForm.controls['email'].dirty || lenderForm.controls['email'].touched)">
+                    <div class="error" *ngIf="lenderForm.controls['email'].errors?.['email']">
+                        Enter valid email address
+                    </div>
+                    <div class="error" *ngIf="lenderForm.controls['email'].errors?.['required']">
+                        Enter email address
+                    </div>
+                    <div class="error" *ngIf="lenderForm.controls['email'].errors?.['entityExists']">
+                        User already exists with this email
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder=" " formControlName="firstName" [readOnly]="isLoading" />
+                  <label class="form-label">First name</label>
+                  <div *ngIf="(lenderForm.controls['firstName'].dirty || lenderForm.controls['firstName'].touched)">
+                    <div class="error" *ngIf="lenderForm.controls['firstName'].errors?.['required']">
+                        Enter First Name
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder=" " formControlName="lastName" [readOnly]="isLoading" />
+                  <label class="form-label">Last name</label>
+                  <div *ngIf="(lenderForm.controls['lastName'].dirty || lenderForm.controls['lastName'].touched)">
+                    <div class="error" *ngIf="lenderForm.controls['lastName'].errors?.['required']">
+                        Enter Last Name
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <select class="floating-select" onclick="this.setAttribute('value', this.value);" formControlName="organizationId" [disabled]="isLoading" >
+                      <option value=""></option>
+                      <option *ngFor="let item of organizationsData" [ngValue]="item.id">{{item.name}}</option>
+                  </select>
+                  <label class="form-label">Orgnization</label>
+                  <button (click)="openRightSidebar('orgnization')" class="btn add-product-btn" *ngIf="!isLoading"><i class="fas fa-plus-square"></i></button>
+                  <div *ngIf="(lenderForm.controls['organizationId'].dirty || lenderForm.controls['organizationId'].touched)">
+                    <div class="error" *ngIf="lenderForm.controls['organizationId'].errors?.['required']">
+                        Please select organization
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder=" " formControlName="phoneNumber" [readOnly]="isLoading" />
+                  <label class="form-label">Phone</label>
+                  <div *ngIf="(lenderForm.controls['phoneNumber'].dirty || lenderForm.controls['phoneNumber'].touched)">
+                    <div class="error" *ngIf="lenderForm.controls['phoneNumber'].errors?.['required']">
+                        Enter Phone Number
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <ng-multiselect-dropdown
+                    [placeholder]="'products'"
+                    [settings]="dropdownSettings"
+                    [data]="dropdownList"
+                    formControlName="productIds"
+                    [disabled]="isLoading"
+                  >
+                  </ng-multiselect-dropdown>
+                  <button (click)="openRightSidebar('product')" class="btn add-product-btn" *ngIf="!isLoading"><i class="fas fa-plus-square"></i></button>
+                  <div *ngIf="(lenderForm.controls['productIds'].dirty || lenderForm.controls['productIds'].touched)">
+                    <div class="error" *ngIf="lenderForm.controls['productIds'].errors?.['required']">
+                        Select Lender Products
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12 my-3">
+                <div
+                  class="custom-dropzone"
+                  ngx-dropzone
+                  [accept]="'*'"
+                  (change)="onSelect($event)"
+                  [disabled]="isLoading"
+                >
+                  <ngx-dropzone-label>
+                    <div class="drag-dorp-label">
+                      <i class="far fa-cloud-upload"></i>
+                      <p>Drag & Drop</p>
+                      <p>OR</p>
+                      <span>Browse</span>
+                    </div>
+                  </ngx-dropzone-label>
+                  <ngx-dropzone-image-preview
+                    ngProjectAs="ngx-dropzone-preview"
+                    *ngFor="let f of files"
+                    [file]="f"
+                    [removable]="true"
+                    (removed)="onRemove(f)"
+                    [ngClass]="getFileType(f.type)"
+                  >
+                    <ngx-dropzone-label [ngClass]="getFileType(f.type)">
+                      {{ f.name }} ({{ f.type }})</ngx-dropzone-label
+                    >
+                  </ngx-dropzone-image-preview>
+                </div>
+              </div>
+            </div>
+
+            <div class="text-end mt-3">
+              <button (click)="lenderFormSubmit()" class="btn btn-primary" [disabled]="isLoading || lenderForm.invalid" ><i *ngIf="isLoading" i class="fa fa-spinner fa-spin"></i> {{isLoading ? "Loading..." : (lenderId ? "Update" : "Add")}}</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<product-popup (updateEvent)="popupUpdate('product')" ></product-popup>
+<organization-popup (updateEvent)="popupUpdate('organization')" ></organization-popup>

@@ -1,0 +1,29 @@
+<div
+    [ngClass]="isMulti ? 'custom-dropzone': 'custom-dropzone custom-single-dropzone'"
+    ngx-dropzone
+    [accept]="isMulti ? '.pdf,.doc,.docx,.jpg,.jpeg,.png,.gif' : '.pdf,.doc,.docx'"
+    (change)="onSelect($event)"
+    [disabled]="disabled"
+    [multiple]="isMulti"
+>
+    <ngx-dropzone-label>
+        <div class="drag-dorp-label">
+            <i class="far fa-cloud-upload"></i>
+            <p>Drag & Drop</p>
+            <p>OR</p>
+            <span>Browse</span>
+        </div>
+    </ngx-dropzone-label>
+    <ngx-dropzone-image-preview
+        ngProjectAs="ngx-dropzone-preview"
+        *ngFor="let fileDetails of files"
+        [file]="fileDetails.file"
+        [removable]="true"
+        (removed)="onRemove(fileDetails)"
+        [ngClass]="getFileType(fileDetails.file.type)"
+    >
+        <ngx-dropzone-label [ngClass]="getFileType(fileDetails.file.type)">
+            {{ fileDetails.file.name }} <i *ngIf="fileDetails.uploadStatus == uploadStatus.PENDING" class="fa fa-spinner fa-spin"></i>
+        </ngx-dropzone-label>
+    </ngx-dropzone-image-preview>
+</div>

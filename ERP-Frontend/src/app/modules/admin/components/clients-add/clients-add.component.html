@@ -1,0 +1,99 @@
+<div class="container">
+    <div class="card parent">
+        <div class="card-header">
+            <div style="display: flex; align-items: center; margin: 5px;">
+                <i class="fal fa-users" style="font-size: 20px;"></i>
+                <h4 style="position: relative; display: inline-block; margin: 12px;">{{clientId ? "Update Client" : "Add Client"}}</h4>
+              </div>
+            <!-- <h4>{{clientId ? "Update Client" : "Add Client"}}</h4> -->
+            <div class="card-actions">
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <form class="animate-labels-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder=" " formControlName="firstName" [readOnly]="isLoading" />
+                                    <label for="email" class="form-label">Client First Name</label>
+                                    <div *ngIf="(form.controls['firstName'].dirty || form.controls['firstName'].touched)">
+                                        <div class="error" *ngIf="form.controls['firstName'].errors?.['required']">
+                                            Enter client First Name
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder=" " formControlName="lastName" [readOnly]="isLoading" />
+                                    <label for="email" class="form-label">Client Last Name</label>
+                                    <div *ngIf="(form.controls['lastName'].dirty || form.controls['lastName'].touched)">
+                                        <div class="error" *ngIf="form.controls['lastName'].errors?.['required']">
+                                            Enter client Last name
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="row">
+
+                             <div [formGroup]="formContact"> 
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder=" " formControlName="address" [readOnly]="isLoading" />
+                                        <label class="form-label">Client Address</label>
+                                        <div *ngIf="(formContact.controls['address'].dirty || formContact.controls['address'].touched)">
+                                            <div class="error" *ngIf="formContact.controls['address'].errors?.['required']">
+                                                Enter Address
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder=" " formControlName="phoneNumber" [readOnly]="isLoading" />
+                                        <label class="form-label">Client Contact</label>
+                                        <div *ngIf="(formContact.controls['phoneNumber'].dirty || formContact.controls['phoneNumber'].touched)">
+                                            <div class="error" *ngIf="formContact.controls['phoneNumber'].errors?.['required']">
+                                                Enter Contact Number
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder=" " formControlName="email" [readOnly]="isLoading" />
+                                        <label class="form-label">Client Email</label>
+                                        <div *ngIf="(formContact.controls['email'].dirty || formContact.controls['email'].touched)">
+                                            <div class="error" *ngIf="formContact.controls['email'].errors?.['required']">
+                                                Enter Email
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder=" " formControlName="website" [readOnly]="isLoading" />
+                                        <label class="form-label">Client Website</label>
+                                        <div *ngIf="(formContact.controls['website'].dirty || formContact.controls['website'].touched)">
+                                            <div class="error" *ngIf="formContact.controls['website'].errors?.['required']">
+                                                Enter Website
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-end mt-3">
+                            <button type="button" class="btn btn-primary" (click)="cancel()" style="margin-right: 10px;">Cancel</button>
+                            <button type="submit" class="btn btn-primary"[disabled]="form.invalid ||isLoading" ><i *ngIf="isLoading" i class="fa fa-spinner fa-spin"></i> {{isLoading ? "Loading..." : (clientId? "Update" : "Add")}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

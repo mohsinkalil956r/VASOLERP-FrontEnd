@@ -1,0 +1,218 @@
+  <a routerLink="/admin/dashboard" class=" logo  p-3" >
+    <img src="../../../../assets/images/vasol-logo.png" alt="" />
+  </a>
+<div class="sidebar-menu">
+  <!-- <a routerLink="/admin/dashboard" class="btn btn-primary-gradient mt-3 mb-3 dashboard-btn">
+    <i class="fal fa-tachometer-fast"></i> <span>Dashboard</span>
+  </a> -->
+  <hr />
+  <ul *ngIf="userRole === 'Admin' || userRole === 'SystemUser' " class="menu-list">
+    <!-- <li>
+      <a href="javascript:;" class="btn btn-toggle collapsed nav-link" data-bs-toggle="collapse"
+        data-bs-target="#home-collapse1" aria-expanded="false">
+        <i class="fal fa-hand-holding-usd"></i> <span>Providers</span>
+      </a>
+      <div class="collapse" id="home-collapse1">
+        <ul class="btn-toggle-nav">
+          <li *ngIf="userRole === 'Admin' || (userRole === 'SystemUser' && userPermissions.indexOf('Providers') !== -1)">
+            <a routerLink="/admin/providers-list" [routerLinkActive]="'active'" class="nav-link"><i
+                class="fal fa-file-invoice-dollar"></i> <span>List</span></a>
+          </li>
+          <li *ngIf="userRole === 'Admin' || (userRole === 'SystemUser' && userPermissions.indexOf('FormSubmission') !== -1)">
+            <a routerLink="/admin/providers-form-submission" [routerLinkActive]="'active'" class="nav-link"><i
+                class="fal fa-clipboard-list-check"></i>
+              <span>Form Submission</span></a>
+          </li>
+          <li *ngIf="userRole === 'Admin' || (userRole === 'SystemUser' && userPermissions.indexOf('FormConsolidation') !== -1)">
+            <a routerLink="/admin/providers-form-consolidation" [routerLinkActive]="'active'" class="nav-link"><i
+                class="fal fa-code-branch"></i>
+              <span>Form Consolidation</span></a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <a href="javascript:;" class="nav-link btn btn-toggle collapsed" data-bs-toggle="collapse"
+        data-bs-target="#home-collapse2" aria-expanded="false">
+        <i class="fal fa-hands-usd"></i> <span>Lenders</span>
+      </a>
+      <div class="collapse" id="home-collapse2">
+        <ul class="btn-toggle-nav">
+          <li *ngIf="userRole === 'Admin' || (userRole === 'SystemUser' && userPermissions.indexOf('Lenders') !== -1)">
+            <a routerLink="/admin/lenders-list" [routerLinkActive]="'active'" class="nav-link"
+              [routerLinkActive]="'active'"><i class="fal fa-receipt"></i> <span>List</span></a>
+          </li>
+          <li *ngIf="userRole === 'Admin' || (userRole === 'SystemUser' && userPermissions.indexOf('MBRReview') !== -1)">
+            <a routerLink="/admin/lenders-mbr-list" [routerLinkActive]="'active'" class="nav-link"
+              [routerLinkActive]="'active'"><i class="fal fa-file-chart-pie"></i>
+              <span>MBRs Reviews</span></a>
+          </li>
+          <li *ngIf="userRole === 'Admin' || (userRole === 'SystemUser' && userPermissions.indexOf('WaiveRequest') !== -1)">
+            <a routerLink="/admin/lenders-waive-list" [routerLinkActive]="'active'" class="nav-link"
+              [routerLinkActive]="'active'"><i class="fal fa-people-carry"></i> <span>Waver Request</span></a>
+          </li>
+        </ul>
+      </div>
+    </li> -->
+    <li *ngIf="userRole === 'Admin'">
+      <a href="javascript:;" class="nav-link btn btn-toggle collapsed" data-bs-toggle="collapse"
+        data-bs-target="#home-collapse3" aria-expanded="false">
+        <i class="fal fa-users"></i> <span>Users</span>
+      </a>
+      <div class="collapse" id="home-collapse3">
+        <ul class="btn-toggle-nav">
+          <li>
+            <a routerLink="/admin/user-list" [routerLinkActive]="'active'" class="nav-link"
+              [routerLinkActive]="'active'">
+              <i class="fal fa-address-book"></i> <span>List</span>
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="null" class="nav-link" [routerLinkActive]="'active'">
+              <i class="fal fa-user-clock"></i> <span>Requests</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <a href="javascript;" class="nav-link btn btn-toggle collapsed" data-bs-toggle="collapse"
+        data-bs-target="#home-collapse4" aria-expanded="true">
+        <i class="fal fa-user-tie"></i> <span>Administration</span>
+      </a>
+      <div class="collapse show" id="home-collapse4">
+        <ul class="btn-toggle-nav">
+          <li>
+            <a routerLink="/admin/dashboard" [routerLinkActive]="'active'" class="nav-link"
+              [routerLinkActive]="'active'">
+              <i class="fal fa-tachometer-fast"></i> <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a routerLink="/admin/department" class="nav-link" [routerLinkActive]="'active'">
+              <i class="fal fa-home"></i> <span>Departments</span>
+            </a>
+          </li>
+          <li>
+            <a routerLink="/admin/employee" class="nav-link" [routerLinkActive]="'active'">
+              <i class="fal fa-user"></i> <span>Employees</span>
+            </a>
+          </li>
+          
+          <li>
+            <a routerLink="/admin/expense" class="nav-link" [routerLinkActive]="'active'">
+              <i class="fal fa-credit-card"></i> <span>Expenses</span>
+            </a>
+          </li>
+          <li>
+            <a routerLink="/admin/clients" class="nav-link" [routerLinkActive]="'active'">
+              <i class="fal fa-users"></i> <span>Clients</span>
+            </a> 
+          </li>
+          <li>
+            
+            <li>
+              <a routerLink="/admin/project" class="nav-link" [routerLinkActive]="'active'">
+                <i class="fal fa-share-alt"></i> 
+                <span>Projects</span>
+              </a>
+              </li>
+            <li>
+            <li>
+            <a routerLink="/admin/assets" class="nav-link" [routerLinkActive]="'active'">
+              <i class="fal fa-database"></i> <span>Assets</span>
+            </a>
+          </li>
+          <li>
+            <a routerLink="/admin/contacts" class="nav-link" [routerLinkActive]="'active'">
+              <i class="fal fa-address-book"></i> <span>Contacts</span>
+            </a>
+          </li>
+          <!-- <li *ngIf="userRole === 'Admin'">
+            <a routerLink="/admin/assignments" class="nav-link" [routerLinkActive]="'active'">
+              <i class="fal fa-tasks"></i> <span>Assignments</span>
+            </a>
+          </li> -->
+        </ul>
+      </div>
+    </li>
+  </ul>
+  <!-- <ul *ngIf="userRole === 'Lender'"  class="menu-list">
+    <li>
+      <a routerLink="/lender/dashboard" class="nav-link" [routerLinkActive]="'active'">
+        <i class="fal fa-tachometer-fast"></i> <span>Dashboard</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/lender/products-mbr" class="nav-link" [routerLinkActive]="'active'">
+        <i class="fal fa-file-chart-pie"></i> <span>Product MBRs</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/lender/waiver-request" class="nav-link" [routerLinkActive]="'active'">
+        <i class="fal fa-people-carry"></i> <span>Waiver Request</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/lender/form-submission" class="nav-link" [routerLinkActive]="'active'">
+        <i class="fal fa-clipboard-list-check"></i> <span>Form Submission</span>
+      </a>
+    </li>
+  </ul>
+  <ul *ngIf="userRole === 'Provider'"  class="menu-list">
+    <li>
+      <a routerLink="/provider/dashboard" class="nav-link" [routerLinkActive]="'active'">
+        <i class="fal fa-tachometer-fast"></i> <span>Dashboard</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/provider/mbr-list" class="nav-link" [routerLinkActive]="'active'">
+        <i class="fal fa-file-chart-pie"></i> <span>MBRs List</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/provider/form-submissions" class="nav-link" [routerLinkActive]="'active'">
+        <i class="fal fa-clipboard-list-check"></i> <span>Form Submission</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/provider/form-consolidaton" [routerLinkActive]="'active'" class="nav-link">
+        <i class="fal fa-code-branch"></i>
+        <span>Form Consolidation</span></a>
+    </li>
+  </ul> -->
+</div>
+<div class="user-link">
+  <hr />
+  <div class="btn-group dropup adminDropdown">
+    <a href="javascript;" type="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true"
+      aria-expanded="false">
+      <!-- <img src="../../../../assets/images/users/user1.png" alt="" /> -->
+      <i class="fas fa-user-circle"></i>
+      <div>
+        <span class="user-name">{{userName}}</span>
+        <span class="user-role">{{userRole}}</span>
+      </div>
+    </a>
+    <div class="dropdown-menu">
+      <li>
+        <a [routerLink]="null">
+          <i class="fal fa-user-alt"></i>
+          <span>Profile</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="null">
+          <i class="fal fa-cog"></i>
+          <span>Setting</span>
+        </a>
+      </li>
+      <li >
+        <a [routerLink]="null" (click)="onLogout()">
+          <i class="fal fa-sign-out"></i>
+          <span>Logout</span>
+        </a>
+      </li>
+    </div>
+  </div>
+</div>

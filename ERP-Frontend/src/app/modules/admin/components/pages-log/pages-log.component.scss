@@ -1,0 +1,15 @@
+ul.list {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    li {
+        margin-bottom: 11px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #ddd;
+        padding-left: 16px;
+        text-transform: capitalize;
+        &:last-child {
+            border-bottom: 0;
+        }
+    }
+}

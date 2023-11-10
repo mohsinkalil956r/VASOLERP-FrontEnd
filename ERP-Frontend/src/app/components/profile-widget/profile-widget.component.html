@@ -1,0 +1,54 @@
+<div class="card-body">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="label-data">
+                <span>Email</span>
+                <p>{{userDetails.email}}</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="label-data">
+                <span>First Name</span>
+                <p>{{userDetails.firstName}}</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="label-data">
+                <span>Last Name</span>
+                <p>{{userDetails.lastName}}</p>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="label-data">
+                <span>Phone</span>
+                <p>{{userDetails.phoneNumber}}</p>
+            </div>
+        </div>
+        <div *ngIf="userDetails.organization" class="col-md-6">
+            <div class="label-data">
+                <span>Orgnization</span>
+                <p>{{userDetails.organization}}</p>
+            </div>
+        </div>
+        <br>
+        <div *ngIf="userDetails.products && userDetails.products.length > 0" class="col-md-12">
+            <div class="label-data">
+                <span>Products</span>
+                <ol class="permission-list">
+                    <li *ngFor="let product of userDetails.products">{{product}}</li>
+                </ol>
+            </div>
+        </div>
+        
+    <br />
+        <div *ngIf="userDetails.permissions && userDetails.permissions.length > 0" class="col-md-12">
+            <div class="label-data">
+                <span>Permissions</span>
+                <ul class="permission-list">
+                    <li *ngFor="let permission of userDetails.permissions"><i class="far fa-check-square"></i>{{permission}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

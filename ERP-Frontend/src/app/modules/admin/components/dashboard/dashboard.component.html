@@ -1,0 +1,100 @@
+<div class="container">
+    <div class="card parent">
+        <div class="card-header" style="margin: 10px;">
+            <div style="display: flex; align-items: center; margin: 5px;">
+                <i class="fal fa-tachometer-fast" style="font-size: 20px;"></i>
+                <h4 style="position: relative; display: inline-block; margin: 12px;">Dashboard</h4>
+              </div>
+            <!-- <h4>Dashboard</h4> -->
+            <div class="card-actions">
+                <div class="dropdown">
+                    <button class="dropbtn"><i class="fal fa-eye"></i></button>
+                    <div class="dropdown-content">
+                      <a href="#" class="nav-link"><i class="fal fa-border-all"></i> <span id="new">Grid View</span></a>
+                      <a href="#"><i class="fal fa-list"></i> <span id="new">List View</span></a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropbtn"><i class="fal fa-file-export"></i></button>
+                    <div class="dropdown-content">
+                      <a href="#" class="nav-link"><i class="fal fa-file-pdf"></i> <span id="new">PDF</span></a>
+                      <a href="#"><i class="fal fa-file-excel"></i> <span id="new">Excel</span></a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropbtn"><i class="fal fa-sort"></i></button>
+                    <div class="dropdown-content">
+                      <a href="#" class="nav-link"><i class="fal fa-sort-up"></i> <span id="new">Ascending</span></a>
+                      <a href="#"><i class="fal fa-sort-down"></i> <span id="new">Descending</span></a>
+                    </div>
+                </div>
+                <!-- <a [routerLink]="null" class="btn btn-primary"><i class="fal fa-plus"></i> Add</a> -->
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row mt-3">
+                <div class="col-sm-6 col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body dashbaord-card card-1">
+                            <i class="fal fa-clipboard-list-check"></i>
+                            <h5>45</h5>
+                            <p>Submissions</p>
+                            <a routerLink="/admin/providers-form-submission" class="link-allover"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body dashbaord-card card-2">
+                            <i class="fal fa-file-chart-pie"></i>
+                            <h5>30</h5>
+                            <p>MBRs Review</p>
+                            <a routerLink="/admin/lenders-mbr-list" class="link-allover"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body dashbaord-card card-3">
+                            <i class="fal fa-code-branch"></i>
+                            <h5>21</h5>
+                            <p>Consolidations</p>
+                            <a routerLink="/admin/providers-form-consolidation" class="link-allover"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body dashbaord-card card-4">
+                            <i class="fal fa-hand-receiving"></i>
+                            <h5>96</h5>
+                            <p>Waver Requests</p>
+                            <a routerLink="/admin/lenders-waive-list" class="link-allover"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body dashbaord-card card-5">
+                            <i class="fal fa-hand-holding-box"></i>
+                            <h5>37</h5>
+                            <p>Requests</p>
+                            <a [routerLink]="null" class="link-allover"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body dashbaord-card card-6">
+                            <i class="fal fa-file-invoice-dollar"></i>
+                            <h5>68</h5>
+                            <p>Requests</p>
+                            <a [routerLink]="null" class="link-allover"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

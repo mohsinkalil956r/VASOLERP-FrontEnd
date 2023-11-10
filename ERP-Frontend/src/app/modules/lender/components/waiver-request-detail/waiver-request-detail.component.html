@@ -1,0 +1,154 @@
+<div class="container">
+    <div class="card parent">
+        <div class="card-header">
+            <h4>Waiver Request View</h4>
+            <div class="card-actions">
+                <div class="submit-status">
+                    <span class="status-label">Status:</span>
+                    <span class="status-value">Accepted</span>
+                </div>
+                <ng-select class="ng-select-style" [items]="statusList" [(ngModel)]="selectedStatus" bindLabel="name"
+                    bindValue="name" [clearable]="false">
+                    <ng-template ng-label-tmp let-item="item">
+                        <div class="select-label {{item.color}}">
+                            <i class="fal {{item.icon}}"></i>
+                            {{item.name}}
+                        </div>
+                    </ng-template>
+                </ng-select>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="submission-data-card">
+                <ul>
+                    <li>
+                        <span class="data-label">Submission Type</span>
+                        <span class="data-value">Submitted</span>
+                    </li>
+                    <li>
+                        <span class="data-label">Form Type</span>
+                        <span class="data-value">Docx</span>
+                    </li>
+
+                    <li>
+                        <span class="data-label">Status</span>
+                        <span class="data-value">On Hold</span>
+                    </li>
+                    <li>
+                        <span class="data-label">Due Date</span>
+                        <span class="data-value">15-02-2013</span>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8 col-md-10">
+                    <div class="card attachment-card">
+                        <div class="card-header">Attachments</div>
+                        <div class="card-body">
+                            <ul>
+                                <li>
+                                    <div class="file-type"><i class="far fa-file-word"></i></div>
+                                    <div class="file-name">request-form.doc</div>
+                                    <div class="download link"><button class="btn btn-icon-fill"><i
+                                                class="fal fa-arrow-to-bottom"></i></button></div>
+                                </li>
+                                <li>
+                                    <div class="file-type"><i class="fal fa-file-word"></i></div>
+                                    <div class="file-name">new-plan.docx</div>
+                                    <div class="download link"><button class="btn btn-icon-fill"><i
+                                                class="fal fa-arrow-to-bottom"></i></button></div>
+                                </li>
+                                <li>
+                                    <div class="file-type"><i class="far fa-file-pdf"></i></div>
+                                    <div class="file-name">user-agreements.pdf</div>
+                                    <div class="download link"><button class="btn btn-icon-fill"><i
+                                                class="fal fa-arrow-to-bottom"></i></button></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="attachment-actions">
+                        <button class="btn btn-danger"><i class="fal fa-times-octagon"></i> Reject</button>
+                        <button class="btn btn-success"><i class="fal fa-badge-check"></i> Approve</button>
+                    </div>
+                </div>
+            </div>
+
+            <!---------------------------------------------------------- Submitted Send Back -------------------------------------------------------->
+            <div class="row  my-3">
+                <div class="col-lg-8 col-md-10">
+                    <div class="submit-box submited-sendback">
+                        <div class="submit-user">
+                            <div class="user-icon">
+                                <i class="fal fa-user-circle"></i>
+                            </div>
+                            <div>
+                                <h6><span class="user-name">Zack Synder</span></h6>
+                                <p class="submit-date"> 25-03-2023</p>
+                            </div>
+                        </div>
+                        <div class="subitted-details">
+
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic explicabo accusamus velit
+                                sit? Architecto laudantium quaerat ipsa obcaecati? Nisi necessitatibus, voluptas,
+                                recusandae numquam iure iste illum inventore facilis praesentium quod sequi. Ex sapiente
+                                impedit, vitae dolor dignissimos placeat ipsum accusantium sed cumque illum rerum quas
+                                cupiditate! Reprehenderit dolorum magnam inventore.</p>
+                            <div class="submitted-attachment">
+                                <i class="far fa-file-pdf"></i>
+                                <span>Sample document</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!---------------------------------------------------------- APROVAL FORM -------------------------------------------------------->
+            <div class="row  my-3">
+                <div class="col-lg-8 col-md-10">
+                    <div class="submit-box submit-approve">
+                        <div class="animate-labels-form">
+                            <div class="form-group">
+                                <textarea class="form-control" rows="5" type="text" onclick="(this.type='date')"
+                                    placeholder=" "></textarea>
+                                <label>Approval Notes</label>
+                            </div>
+                            <div class="text-end">
+                                <button class="btn btn-outline-danger">
+                                    Cancel
+                                </button>
+                                <button class="btn btn-success ms-3">
+                                    <i class="fal fa-badge-check"></i>
+                                    Approve
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!---------------------------------------------------------- REJECT FORM -------------------------------------------------------->
+            <div class="row  my-3">
+                <div class="col-lg-8 col-md-10">
+                    <div class="submit-box submit-reject">
+                        <div class="animate-labels-form">
+                            <div class="form-group">
+                                <textarea class="form-control" rows="5" type="text" onclick="(this.type='date')"
+                                    placeholder=" "></textarea>
+                                <label>Rejection Notes</label>
+                            </div>
+                            <div class="text-end">
+                                <button class="btn btn-outline-danger">
+                                    Cancel
+                                </button>
+                                <button class="btn btn-danger ms-3"><i class="fal fa-times-octagon"></i> Reject</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

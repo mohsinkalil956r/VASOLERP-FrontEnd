@@ -1,0 +1,98 @@
+<div class="container">
+    <div class="card parent">
+        <div class="card-header">
+            <h4>User Profile</h4>
+            <div class="card-actions">
+
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row view-page">
+                <div class="col-xl-6 mb-4">
+                    <div class="card">
+                        <div class="card-title">
+                            <h4>Profile Detail</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="label-data">
+                                        <span>First Name</span>
+                                        <p>John</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="label-data">
+                                        <span>Last Name</span>
+                                        <p>Doe</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="label-data">
+                                        <span>Email</span>
+                                        <p>johndoe@gmail.com</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="label-data">
+                                        <span>Phone</span>
+                                        <p>971 002 9392</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="label-data">
+                                        <span>Orgnization</span>
+                                        <p>Mircosoft Orgnization, Telecom Sel</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="label-data">
+                                        <span>Product</span>
+                                        <p>Selmon, Jordan, Phillip</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="label-data">
+                                        <span>Permissions</span>
+                                        <ul class="permission-list">
+                                            <li><i class="far fa-check-square"></i> From submission </li>
+                                            <li><i class="far fa-check-square"></i> Form Consolidation </li>
+                                            <li><i class="far fa-check-square"></i> MBR Reviews</li>
+                                            <li><i class="far fa-check-square"></i> Waiver Request</li>
+                                            <li><i class="far fa-check-square"></i> Providers</li>
+                                            <li><i class="far fa-check-square"></i> Lenders</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="label-data">
+                                        <span>Edits</span>
+                                        <p class="dual-links">
+                                            <a routerLink="../../change-password"><i class="fal fa-key"></i> Change Password</a>
+                                            <a [routerLink]="null"><i class="fal fa-pencil"></i> Edit Profile</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="card">
+                        <div class="card-title">
+                            <h4>Correspondence</h4>
+                        </div>
+                        <div class="card-body">
+                            <ag-grid-angular style="width: 100%; height: 320px" class="ag-theme-alpine"
+                                [rowData]="rowData" [cacheQuickFilter]="true" [columnDefs]="columnDefs"
+                                [defaultColDef]="defaultColDef" [animateRows]="true"
+                                [paginationPageSize]="paginationPageSize" [pagination]="true">
+                            </ag-grid-angular>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

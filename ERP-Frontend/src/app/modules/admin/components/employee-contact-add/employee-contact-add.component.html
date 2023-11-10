@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="card parent">
+        <div class="card-header">
+            <h4>{{employeeContactId ? "Update Employee Contact" : "Add Employee Contact"}}</h4>
+            <div class="card-actions">
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <form class="animate-labels-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group"><app-custom-dropdown valueField="id" displayField="name" [control]="form.controls['employeeId']" serviceType="employee" />
+                                    <label class="form-label">Employee</label>
+                                    <div *ngIf="(form.controls['employeeId'].dirty || form.controls['employeeId'].touched)">
+                                        <div class="error" *ngIf="form.controls['employeeId'].errors?.['required']">
+                                            Select Employee Id
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder=" " formControlName="email" [readOnly]="employeeContactId || isLoading" />
+                                <label for="email" class="form-label">Email address</label>
+                                <div *ngIf="(form.controls['email'].dirty || form.controls['email'].touched)">
+                                    <div class="error" *ngIf="form.controls['email'].errors?.['email']">
+                                        Enter valid email address
+                                    </div>
+                                    <div class="error" *ngIf="form.controls['email'].errors?.['required']">
+                                        Enter email address
+                                    </div>
+                                    <div class="error" *ngIf="form.controls['email'].errors?.['entityExists']">
+                                        User already exists with this email
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control invalid" placeholder=" " formControlName="phoneNumber" [readOnly]="isLoading" />
+                                    <label class="form-label">Phone</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder=" " formControlName="website" [readOnly]="isLoading" />
+                                    <label class="form-label">Website</label>
+                                    <div *ngIf="(form.controls['website'].dirty || form.controls['website'].touched)">
+                                        <div class="error" *ngIf="form.controls['website'].errors?.['required']">
+                                            Enter Website
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder=" " formControlName="address" [readOnly]="isLoading" />
+                                    <label class="form-label">Address</label>
+                                    <div *ngIf="(form.controls['address'].dirty || form.controls['address'].touched)">
+                                        <div class="error" *ngIf="form.controls['address'].errors?.['required']">
+                                            Enter Address
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-end mt-3">
+                            <button type="submit" class="btn btn-primary"[disabled]="form.invalid ||isLoading" ><i *ngIf="isLoading" i class="fa fa-spinner fa-spin"></i> {{isLoading ? "Loading..." : (employeeContactId? "Update" : "Add")}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

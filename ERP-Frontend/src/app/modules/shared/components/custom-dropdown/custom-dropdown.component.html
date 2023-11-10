@@ -1,0 +1,3 @@
+<select class="form-control" placeholder=" " [formControl]="getFormControl()" (ngModelChange)="onValueChanged($event)">
+    <option *ngFor="let item of dropdownData"  [ngValue]="item[valueField]">{{item[displayField]}}</option>
+</select>

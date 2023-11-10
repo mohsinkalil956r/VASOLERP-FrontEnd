@@ -1,0 +1,35 @@
+<div class="product-sidebar">
+    <span class="close-product-sidebar" (click)="closeRightSidebar()"><i class="fal fa-times"></i></span>
+    <div>
+        <h4>{{productId ? "Update Product" : "Add Product"}}</h4>
+        <form class="animate-labels-form" [formGroup]="productForm">
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder=" " formControlName="name" [readOnly]="isLoading">
+                <label>Product Name</label>
+                <div *ngIf="(productForm.controls['name'].dirty || productForm.controls['name'].touched)">
+                    <div class="error" *ngIf="productForm.controls['name'].errors?.['required']">
+                        Enter product name
+                    </div>
+                    <div class="error" *ngIf="productForm.controls['name'].errors?.['entityExists']">
+                        product already exists with this name
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" type="text" placeholder=" " formControlName="description" [readOnly]="isLoading"></textarea>
+                <label>Product Description</label>
+                <div *ngIf="(productForm.controls['description'].dirty || productForm.controls['description'].touched)">
+                    <div class="error" *ngIf="productForm.controls['description'].errors?.['required']">
+                        Enter product description
+                    </div>
+                </div>
+            </div>
+            <div class="text-end mt-auto">
+                <button class="btn btn-outline-danger" (click)="closeRightSidebar()" [disabled]="isLoading">
+                    Cancel
+                </button>
+                <button class="btn btn-primary ms-3" (click)="onSubmit()" [disabled]="isLoading || productForm.invalid" ><i *ngIf="isLoading" i class="fa fa-spinner fa-spin"></i> {{isLoading ? "Loading..." : (productId ? "Update" : "Add")}}</button>
+            </div>
+        </form>
+    </div>
+</div>

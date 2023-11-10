@@ -1,0 +1,97 @@
+<div class="container">
+    <div class="card parent">
+        <div class="card-header">
+            <div style="display: flex; align-items: center; margin: 5px;">
+                <i class="fal fa-database" style="font-size: 20px;"></i>
+                <h4 style="position: relative; display: inline-block; margin: 12px;">{{assetId ? "Update Asset" : "Add Asset"}}</h4>
+            </div>
+            <!-- <h4>{{assetId ? "Update Asset" : "Add Asset"}}</h4> -->
+            <div class="card-actions">
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <form class="animate-labels-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder=" " formControlName="name" [readOnly]="isLoading" />
+                                    <label for="email" class="form-label">Name</label>
+                                    <div *ngIf="(form.controls['name'].dirty || form.controls['name'].touched)">
+                                        <div class="error" *ngIf="form.controls['name'].errors?.['required']">
+                                            Enter Asset Name.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <app-custom-dropdown valueField="id" displayField="name" [control]="form.controls['assetTypeId']" serviceType="assetType"  (valueChanged)="updateAssetTypeLabel($event)"/>
+                                    <label class="form-label">{{ assetTypeLabel }}</label>
+                                    <div *ngIf="(form.controls['assetTypeId'].dirty || form.controls['assetTypeId'].touched)">
+                                        <div class="error" *ngIf="form.controls['assetTypeId'].errors?.['required']">
+                                            Select Asset Type.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder=" " formControlName="description" [readOnly]="isLoading" />
+                                    <label for="email" class="form-label">Description</label>
+                                    <div *ngIf="(form.controls['description'].dirty || form.controls['description'].touched)">
+                                        <div class="error" *ngIf="form.controls['description'].errors?.['required']">
+                                            Enter Description.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="date" class="form-control" placeholder=" " formControlName="purchaseDate" [readOnly]="isLoading" />
+                                    <label for="email" class="form-label">Purchase Date</label>
+                                    <div *ngIf="(form.controls['purchaseDate'].dirty || form.controls['purchaseDate'].touched)">
+                                        <div class="error" *ngIf="form.controls['purchaseDate'].errors?.['required']">
+                                            Select Purchase Date.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="number" class="form-control" placeholder=" " formControlName="purchasePrice" [readOnly]="isLoading" />
+                                    <label for="email" class="form-label">Purchase price</label>
+                                    <div *ngIf="(form.controls['purchasePrice'].dirty || form.controls['purchasePrice'].touched)">
+                                        <div class="error" *ngIf="form.controls['purchasePrice'].errors?.['required']">
+                                            Enter Purchase Price.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                  <!-- Update displayField to "firstName" and change label -->
+                                  <app-custom-dropdown valueField="id" displayField="firstName" [control]="form.controls['issuedTo']" serviceType="employees" (valueChanged)="updateEmployeeTypeLabel($event)"/>
+                                  <label class="form-label"> {{ employeeNameLabel }}</label>
+                                  <div *ngIf="(form.controls['issuedTo'].dirty || form.controls['issuedTo'].touched)">
+                                    <div class="error" *ngIf="form.controls['issuedTo'].errors?.['required']">
+                                      Select Employee.
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            <div class="col-md-12 my-3">
+                                <app-upload-documents (uploadingEvent)="uploadingEventHandler($event)"></app-upload-documents>
+                            </div>
+                        </div>
+                        <div class="text-end mt-auto">
+                            <button type="button" class="btn btn-primary" (click)="cancel()" style="margin-right: 10px;">Cancel</button>
+                            <button type="submit" class="btn btn-primary"[disabled]="form.invalid ||isLoading" ><i *ngIf="isLoading" i class="fa fa-spinner fa-spin"></i> {{isLoading ? "Loading..." : (assetId? "Update" : "Add")}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

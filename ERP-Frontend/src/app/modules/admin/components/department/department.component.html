@@ -1,0 +1,95 @@
+<div class="container">
+    <div class="card parent">
+      <div class="card-header">
+        <div style="display: flex; align-items: center; margin: 5px;">
+          <i class="fal fa-home" style="font-size: 20px;"></i>
+          <h4 style="position: relative; display: inline-block; margin: 12px;">Department</h4>
+        </div>
+        <!-- <h4>Department</h4> -->
+        <div class="card-actions">
+
+          <div class="searchh">
+            <div class="form-group has-search">
+              <span class="fa fa-search form-control-feedback"></span>
+              <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchQuery" (keyup.enter)="onSearch()">
+              <span class="clear"></span>
+              <!-- <input type="text" placeholder="Search" [(ngModel)]="searchQuery" (keyup.enter)="onSearch()"> -->
+            </div>
+          </div>
+          <!-- <div>
+            <input type="text" placeholder="Search" [(ngModel)]="searchQuery" (keyup.enter)="onSearch()">
+          </div> -->
+          <div class="dropdown">
+            <div *ngFor="let department of departments">
+              <!-- Display expense details here --> 
+            </div>
+            <!-- <a href="/admin/employee-add/" class="dnew"><i class="fal fa-plus"></i></a> -->
+            <a routerLink="/admin/department-add/" [routerLinkActive]="'active'" class="nav-link"
+            [routerLinkActive]="'active'"matTooltip="Add Department"> <button class="dropbtn"><i class="fal fa-plus"></i></button></a>
+          </div>
+          <div class="dropdown">
+          
+            <!-- <button class="dropbtn"><i class="fal fa-eye"></i></button> -->
+            <!-- <div class="dropdown-content">
+              <a href="#" class="nav-link"><i class="fal fa-border-all"></i> <span id="new">Grid View</span></a>
+              <a href="#"><i class="fal fa-list"></i> <span id="new">List View</span></a>
+            </div> -->
+        </div>
+          <div class="dropdown">
+              <button class="dropbtn"><i class="fal fa-eye"></i></button>
+              <div class="dropdown-content">
+                <a href="#" class="nav-link"><i class="fal fa-border-all"></i> <span id="new">Grid View</span></a>
+                <a href="#"><i class="fal fa-list"></i> <span id="new">List View</span></a>
+              </div>
+          </div>
+
+          <div class="dropdown">
+              <button class="dropbtn"><i class="fal fa-file-export"></i></button>
+              <div class="dropdown-content">
+                <a href="#" class="nav-link"><i class="fal fa-file-pdf"></i> <span id="new">PDF</span></a>
+                <a href="#"><i class="fal fa-file-excel"></i> <span id="new">Excel</span></a>
+              </div>
+          </div>
+
+          <div class="dropdown">
+              <button class="dropbtn"><i class="fal fa-sort"></i></button>
+              <div class="dropdown-content">
+                <a href="#" class="nav-link"><i class="fal fa-sort-up"></i> <span id="new">Ascending</span></a>
+                <a href="#"><i class="fal fa-sort-down"></i> <span id="new">Descending</span></a>
+          </div>
+      </div>
+        </div>
+        <!-- <div class="card-actions"> -->
+
+          
+          
+          <!-- <button (click)="openRightSidebar()" class="btn btn-primary"><i class="fal fa-plus"></i> Add Department</button> -->
+        <!-- </div> -->
+      </div>
+      <div class="card-body">
+        <!-- AG Grid Angular Component -->
+        <ag-grid-angular
+          style="width: 100%; height: 500px"
+          class="ag-theme-alpine"
+          [rowData]="rowData$"
+          [cacheQuickFilter]="true"
+          [columnDefs]="columnDefs"
+          [defaultColDef]="defaultColDef"
+          [animateRows]="true"
+          [paginationPageSize]="paginationPageSize"
+          [pagination]="false"
+          (gridReady)="onGridReady($event)"
+        >
+        </ag-grid-angular>
+        <mat-paginator 
+        [length]="100" 
+        [pageSize]="10"
+        [pageSizeOptions]="[5, 10, 20, 100]"
+        (page)="onPage($event)"
+        aria-label="Select page">
+        </mat-paginator>
+    </div>
+  </div>
+</div>
+<single-field-popup (updateEvent)="popupUpdate($event)" serviceType="department" label="Department" />
+<delete-confirmation (onDelete)="onDelete($event)" serviceType="department" heading="Delete Confirmation" message="This department will be removed from the system." confirmButton="Delete" cancelButton="Cancel" ></delete-confirmation>

@@ -1,0 +1,20 @@
+@import "../../../../../styles/variables";
+ul.permission-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5px;
+    li {
+        @media (min-width: 768px) {
+            &:nth-child(even) {
+                padding-left: 15px;
+            }
+            width: 50%;
+        }
+        width: 100%;
+        margin-bottom: 6px;
+    }
+    i {
+        color: $primary;
+        margin-right: 5px;
+    }
+}

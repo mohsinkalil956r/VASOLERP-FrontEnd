@@ -1,0 +1,96 @@
+<div class="container">
+    <div class="card parent">
+        <div class="card-header">
+            <h4>{{clientContactId ? "Update Client Contact" : "Add Client Contact"}}</h4>
+            <div class="card-actions">
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <form class="animate-labels-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <!-- <app-custom-dropdown valueField="id" displayField="name" [control]="form.controls['clientId']" serviceType="clients"/> -->
+                                    <label class="form-label"></label>
+                                    <select class="form-label" id="inputGroupSelect01">
+                                        <option selected class="form-label">Client Id</option>
+                                        <option value="1">0011</option>
+                                        <option value="2">0022</option>
+                                        <option value="3">0033</option>
+                                    </select>
+                                    <!-- <div *ngIf="(form.controls['clientId'].dirty || form.controls['clientId'].touched)">
+                                        <div class="error" *ngIf="form.controls['clientId'].errors?.['required']">
+                                            Select Client Id
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control invalid" placeholder=" " formControlName="Client Name" [readOnly]="isLoading" />
+                                    <label class="form-label">Client Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder=" " formControlName="email" [readOnly]="clientContactId || isLoading" />
+                                    <label for="email" class="form-label">Email address</label>
+                                    <div *ngIf="(form.controls['email'].dirty || form.controls['email'].touched)">
+                                        <div class="error" *ngIf="form.controls['email'].errors?.['email']">
+                                            Enter valid email address
+                                        </div>
+                                        <div class="error" *ngIf="form.controls['email'].errors?.['required']">
+                                            Enter email address
+                                        </div>
+                                        <div class="error" *ngIf="form.controls['email'].errors?.['entityExists']">
+                                            User already exists with this email
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control invalid" placeholder=" " formControlName="phoneNumber" [readOnly]="isLoading" />
+                                    <label class="form-label">Phone</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder=" " formControlName="website" [readOnly]="isLoading" />
+                                    <label class="form-label">Website</label>
+                                    <div *ngIf="(form.controls['website'].dirty || form.controls['website'].touched)">
+                                        <div class="error" *ngIf="form.controls['website'].errors?.['required']">
+                                            Enter Website
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder=" " formControlName="address" [readOnly]="isLoading" />
+                                    <label class="form-label">Address</label>
+                                    <div *ngIf="(form.controls['address'].dirty || form.controls['address'].touched)">
+                                        <div class="error" *ngIf="form.controls['address'].errors?.['required']">
+                                            Enter Address
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                    <!-- <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Button</button> -->
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="text-end mt-3">
+                            <button type="submit" class="btn btn-primary"[disabled]="form.invalid ||isLoading" ><i *ngIf="isLoading" i class="fa fa-spinner fa-spin"></i> {{isLoading ? "Loading..." : (clientContactId? "Update" : "Add")}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
