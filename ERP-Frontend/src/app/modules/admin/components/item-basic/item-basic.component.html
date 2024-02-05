@@ -1,0 +1,145 @@
+<div class="container">
+    <div class="card parent">
+        <div class="card-header">
+            <div style="display: flex; align-items: center; margin: 5px;">
+                <i class="fal fa-home" style="font-size: 20px;"></i>
+                <h4 style="position: relative; display: inline-block; margin: 12px;">{{itemId ? "Update Department" : "Add Item"}}</h4>
+              </div>
+            <!-- <h4>{{departmentId ? "Update Department" : "Add Department"}}</h4> -->
+            <div class="card-actions">
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <form class="animate-labels-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder=" " formControlName="name" [readOnly]="isLoading" />
+                                    <label for="email" class="form-label">Department Name</label>
+                                    <div *ngIf="(form.controls['name'].dirty || form.controls['name'].touched)">
+                                        <div class="error" *ngIf="form.controls['name'].errors?.['required']">
+                                            Enter Department name.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="image-box">
+                                    <!-- Add your image tag here -->
+                                    <img src="../../../../../assets/images/img.png" alt="Image Alt Text" style="max-width: 100%; height: 100px;border: 10px solid black;">
+                                    <!-- You can customize the styling of the image box as needed -->
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder=" " formControlName="hod" [readOnly]="isLoading" />
+                                    <label for="email" class="form-label">Head of Department</label>
+                                    <div *ngIf="(form.controls['hod'].dirty || form.controls['hod'].touched)">
+                                        <div class="error" *ngIf="form.controls['hod'].errors?.['required']">
+                                            Enter Head of Department.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group select-container">
+                                  <label *ngIf="!selectedUserType">{{ labelPlaceholder }}</label>
+                                  <select
+                                    id="userType"
+                                    class="form-control"
+                                    formControlName="userType"
+                                    (change)="updateLabel($event)"
+                                    [(ngModel)]="selectedUserType"
+                                  >
+                                    <option value="company">company</option>
+                                    <option value="Admin">Admin</option>
+                                  </select>
+                                </div>
+                              </div> 
+                             
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder=" " formControlName="name" [readOnly]="isLoading" />
+                                    <label for="email" class="form-label">Category</label>
+                                    <div *ngIf="(form.controls['name'].dirty || form.controls['name'].touched)">
+                                        <div class="error" *ngIf="form.controls['name'].errors?.['required']">
+                                            Enter Department name.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder=" " formControlName="name" [readOnly]="isLoading" />
+                                    <label for="email" class="form-label">Group</label>
+                                    <div *ngIf="(form.controls['name'].dirty || form.controls['name'].touched)">
+                                        <div class="error" *ngIf="form.controls['name'].errors?.['required']">
+                                            Enter Department name.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder=" " formControlName="name" [readOnly]="isLoading" />
+                                    <label for="email" class="form-label">Style No</label>
+                                    <div *ngIf="(form.controls['name'].dirty || form.controls['name'].touched)">
+                                        <div class="error" *ngIf="form.controls['name'].errors?.['required']">
+                                            Enter Department name.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder=" " formControlName="name" [readOnly]="isLoading" />
+                                    <label for="email" class="form-label">HSN Code</label>
+                                    <div *ngIf="(form.controls['name'].dirty || form.controls['name'].touched)">
+                                        <div class="error" *ngIf="form.controls['name'].errors?.['required']">
+                                            Enter Department name.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="number" class="form-control" placeholder=" " formControlName="name" [readOnly]="isLoading" />
+                                    <label for="email" class="form-label">Order Quantity</label>
+                                    <div *ngIf="(form.controls['name'].dirty || form.controls['name'].touched)">
+                                        <div class="error" *ngIf="form.controls['name'].errors?.['required']">
+                                            Enter Department name.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <textarea class="form-control" placeholder=" " formControlName="invoicexml"
+                                        [readOnly]="isLoading"
+                                        style="width: 100%; height: 80px; overflow: auto;"></textarea>
+                                    <label for="email" class="form-label">Remarks</label>
+                                    <div *ngIf="(form.controls['invoicexml'].dirty || form.controls['invoicexml'].touched)">
+                                        <div class="error" *ngIf="form.controls['invoicexml'].errors?.['required']">
+                                            Enter Invoice Xml.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-end mt-3">
+                            <button type="button" class="btn btn-primary" (click)="cancel()" style="margin-right: 10px;">Cancel</button>
+                            <button type="submit" class="btn btn-primary"[disabled]="form.invalid ||isLoading" ><i *ngIf="isLoading" i class="fa fa-spinner fa-spin"></i> {{isLoading ? "Loading..." : (itemId? "Update" : "Add")}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

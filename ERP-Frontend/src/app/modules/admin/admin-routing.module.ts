@@ -52,6 +52,9 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { ProjectAddComponent } from './components/project-add/project-add.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { ContactAddComponent } from './components/contact-add/contact-add.component';
+import { ItemBasicComponent } from './components/item-basic/item-basic.component';
+import { ItemPriceComponent } from './components/item-price/item-price.component';
+import { ItemComponent } from './components/item/item.component';
 
 
 const routes: Routes = [
@@ -100,6 +103,9 @@ const routes: Routes = [
     {path: 'expense', component: ExpenseComponent, canActivate: [AdminAuthenticationGuard], data: { }},
     {path: 'expense-add', component: ExpenseAddComponent, canActivate: [AdminAuthenticationGuard], data: { }},
     {path: 'expense-add/:id', component: ExpenseAddComponent, canActivate: [AdminAuthenticationGuard], data: { }},
+    {path: 'item-basic', component: ItemBasicComponent, canActivate: [AdminAuthenticationGuard], data: { }},
+    {path: 'item-price', component: ItemPriceComponent, canActivate: [AdminAuthenticationGuard], data: { }},
+    {path: 'item', component: ItemComponent, canActivate: [AdminAuthenticationGuard], data: { }},
 
     {path: 'employee-contacts', component: EmployeeContactsComponent, canActivate: [AdminAuthenticationGuard], data: { }},
     {path: 'employee-contact-add', component: EmployeeContactAddComponent, canActivate: [AdminAuthenticationGuard], data: { }},

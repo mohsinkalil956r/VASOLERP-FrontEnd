@@ -69,6 +69,8 @@ import { ContactAddComponent } from './components/contact-add/contact-add.compon
 
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { ItemBasicComponent } from './components/item-basic/item-basic.component';
+import { ItemPriceComponent } from './components/item-price/item-price.component';
 
 
 
@@ -133,6 +135,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     ProjectAddComponent,
     ContactsComponent,
     ContactAddComponent,
+    ItemBasicComponent,
+    ItemPriceComponent
 
     
   ],
@@ -150,6 +154,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     FormsModule,
     MatPaginatorModule,
     MatTooltipModule,
+
   ],
   exports: [
     MainNavigationComponent,
