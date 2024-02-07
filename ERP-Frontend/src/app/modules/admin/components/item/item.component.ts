@@ -4,13 +4,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DepartmentService } from 'src/app/services/department.service';
 import { entityExistsValidator } from 'src/app/validators/entity-exists.validator';
 import {MatTabsModule} from '@angular/material/tabs';
-import { ItemBasicComponent } from '../item-basic/item-basic.component';
-import { ItemPriceComponent } from '../item-price/item-price.component';
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
-  standalone: true,
-  imports: [MatTabsModule],
   styleUrls: ['./item.component.scss']
 })
 export class ItemComponent implements OnInit {
@@ -18,7 +14,6 @@ export class ItemComponent implements OnInit {
   isLoading: boolean = false;
   departmentId: string | null;
   selectedTabIndex = 0;
-
  
   departmentData: any = {
     name: '',
@@ -52,7 +47,9 @@ export class ItemComponent implements OnInit {
       });
     }
   }
-
+  selectTab(index: number) {
+    this.selectedTabIndex = index;
+  }
 
   onTabChanged(event: any) {
     this.selectedTabIndex = event.index;

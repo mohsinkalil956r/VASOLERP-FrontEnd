@@ -12,16 +12,48 @@ export class ItemPriceComponent implements OnInit {
 
   isLoading: boolean = false;
   itemId: string | null;
-  selectedUserType: string = ''; // Initialize with an empty string
-  labelPlaceholder: string = 'User Type'; // Placeholder text for the label
+  selectedcostingMethod: string = '';
+ 
+   // Initialize with an empty string
+  labelcostingMethod: string = 'Costing Method'; // Placeholder text for the label
   departmentData: any = {
-    name: '',
-    hod:'',
+    costPrice:'',
+    weightedAverageCourse:'',
+    lastPurchasedCost:'',
+    taxIncludedCostPrice:'',
+    cessOnTax:'',
+    maxDiscount:'',
+    lastPurchasedDate:'',
+    taxIncludedRetailPrice:'',
+    lastSoldDate:'',
+    costingMethod:'',
+    salesman:'',
+    agent:'',
+    vat:'',
+    CGST:'',
+    SGST:'',
+    IGST:'',
+
+
   }
 
   form: FormGroup = new FormGroup({
-    name: new FormControl(this.departmentData.name,  { validators: [ Validators.required], asyncValidators: [entityExistsValidator(this.service)], updateOn: 'blur'},),
-    hod: new FormControl(this.departmentData.hod, { validators: [ Validators.required], asyncValidators: [entityExistsValidator(this.service)], updateOn: 'blur'}),
+    costPrice: new FormControl(this.departmentData.costPrice, ),
+    weightedAverageCourse: new FormControl(this.departmentData.weightedAverageCourse, ),
+    lastPurchasedCost: new FormControl(this.departmentData.lastPurchasedCost, ),
+    taxIncludedCostPrice: new FormControl(this.departmentData.taxIncludedCostPrice, ),
+    taxIncludedRetailPrice: new FormControl(this.departmentData.taxIncludedRetailPrice, ),
+    cessOnTax: new FormControl(this.departmentData.cessOnTax, ),
+    maxDiscount: new FormControl(this.departmentData.maxDiscount, ),
+    lastPurchasedDate: new FormControl(this.departmentData.lastPurchasedDate, ),
+    lastSoldDate: new FormControl(this.departmentData.lastSoldDate, ),
+    costingMethod: new FormControl(this.departmentData.costingMethod, ),
+    salesman: new FormControl(this.departmentData.salesman, ),
+    agent: new FormControl(this.departmentData.agent, ),
+    vat: new FormControl(this.departmentData.vat, ),
+    CGST: new FormControl(this.departmentData.CGST, ),
+    SGST: new FormControl(this.departmentData.SGST, ),
+    IGST: new FormControl(this.departmentData.IGST, ),
     
   });
 
@@ -50,8 +82,8 @@ export class ItemPriceComponent implements OnInit {
   updateLabel(event: any) {
     debugger
     // Update the label when an option is selected
-    this.selectedUserType = event.target.value;
-    if(this.selectedUserType==='Admin'){
+    this.selectedcostingMethod = event.target.value;
+    if(this.selectedcostingMethod==='Admin'){
     
     
     }

@@ -1,51 +1,30 @@
-<div class="container">
-    <div class="card parent">
-        <div class="card-header">
-            <div style="display: flex; align-items: center; margin: 5px;">
-                <i class="fal fa-home" style="font-size: 20px;"></i>
-                <h4 style="position: relative; display: inline-block; margin: 12px;">{{departmentId ? "Update Department" : "item"}}</h4>
-            </div>
-            
-            <div style="display: flex; align-items: center; margin: 5px;">
-                <label style="margin-right: 10px;"><input type="radio" name="action" value="add"> Add</label>
-                <label style="margin-right: 10px;"><input type="radio" name="action" value="update"> Update</label>
-                <label style="margin-right: 10px;"><input type="radio" name="action" value="delete"> Delete</label>
-                <label style="margin-right: 10px;"><input type="radio" name="action" value="view"> View</label>
-                
-            </div>
-          
-            <div style="margin: 5px;">
-                <input type="text" placeholder="Search" style="padding: 5px;">
-                <button style="padding: 5px;">Search</button>
-            </div>
-            
-            <!-- <h4>{{departmentId ? "Update Department" : "Add Department"}}</h4> -->
-            <div class="card-actions">
-            </div>
-        </div>
-        <mat-tab-group (selectedTabChange)="onTabChanged($event)">
-            <mat-tab label="First">
-                <ng-container *ngIf="selectedTabIndex === 0">
-                  <app-item *ngIf="selectedTabIndex === 0"></app-item>
-                </ng-container>
-              </mat-tab>
-          
-            <mat-tab label="Second">
-              <ng-container *ngIf="selectedTabIndex === 1">
-                <!-- Use the selector of your SecondComponent -->
-              </ng-container>
-            </mat-tab>
-          
-            <mat-tab label="Third">
-              <ng-container *ngIf="selectedTabIndex === 2">
-               <!-- Use the selector of your ThirdComponent -->
-              </ng-container>
-            </mat-tab>
-          </mat-tab-group>
-          
-          
-          
-      
-        
-    </div>
+<!-- STATIC CONTENT -->
+<header>
+
+    <div class="col-md-12">
+    <button type="button" class="col-md-3 btn btn-primary" (click)="selectTab(0)">Basic Info</button>
+    <button class="col-md-3 btn btn-primary" (click)="selectTab(1)">Price</button>
+    <button  class="col-md-3 btn btn-primary" (click)="selectTab(2)">Stock </button>
+    <button  class="col-md-3 btn btn-primary" (click)="selectTab(3)">Listing </button>
+  </div>
+
+</header>
+<!-- STATIC CONTENT -->
+<!-- TABS -->
+
+
+<div>
+  <ng-container *ngIf="selectedTabIndex === 0">
+    <item-basic></item-basic>
+  </ng-container>
+  <ng-container *ngIf="selectedTabIndex === 1">
+    <app-item-Price></app-item-Price>
+  </ng-container>
+  <ng-container *ngIf="selectedTabIndex === 2">
+    <app-item-Price></app-item-Price>
+  </ng-container>
+  <ng-container *ngIf="selectedTabIndex === 3">
+    <app-item-listing></app-item-listing>
+  </ng-container>
 </div>
+

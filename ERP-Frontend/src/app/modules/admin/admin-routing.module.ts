@@ -103,9 +103,7 @@ const routes: Routes = [
     {path: 'expense', component: ExpenseComponent, canActivate: [AdminAuthenticationGuard], data: { }},
     {path: 'expense-add', component: ExpenseAddComponent, canActivate: [AdminAuthenticationGuard], data: { }},
     {path: 'expense-add/:id', component: ExpenseAddComponent, canActivate: [AdminAuthenticationGuard], data: { }},
-    {path: 'item-basic', component: ItemBasicComponent, canActivate: [AdminAuthenticationGuard], data: { }},
-    {path: 'item-price', component: ItemPriceComponent, canActivate: [AdminAuthenticationGuard], data: { }},
-    {path: 'item', component: ItemComponent, canActivate: [AdminAuthenticationGuard], data: { }},
+   {path: 'item', component: ItemComponent, canActivate: [AdminAuthenticationGuard], data: { }},
 
     {path: 'employee-contacts', component: EmployeeContactsComponent, canActivate: [AdminAuthenticationGuard], data: { }},
     {path: 'employee-contact-add', component: EmployeeContactAddComponent, canActivate: [AdminAuthenticationGuard], data: { }},

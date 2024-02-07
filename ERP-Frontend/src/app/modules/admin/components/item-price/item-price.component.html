@@ -3,7 +3,7 @@
         <div class="card-header">
             <div style="display: flex; align-items: center; margin: 5px;">
                 <i class="fal fa-home" style="font-size: 20px;"></i>
-                <h4 style="position: relative; display: inline-block; margin: 12px;">{{itemId ? "Update Department" : "Add Cost"}}</h4>
+                <h4 style="position: relative; display: inline-block; margin: 12px;">{{itemId ? "Update Department" : "Add Price"}}</h4>
               </div>
             <!-- <h4>{{departmentId ? "Update Department" : "Add Department"}}</h4> -->
             <div class="card-actions">
@@ -11,55 +11,59 @@
         </div>
         <div class="card-body">
             <div class="row">
-                <div class="col-lg-8 col-md-12">
+                <div class="col-md-12">
                     <form class="animate-labels-form" [formGroup]="form" (ngSubmit)="onSubmit()">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div style="display: flex; align-items: center; margin: 5px;">
+                                <i class="fal fa-home" style="font-size: 20px;"></i>
+                                <h4 style="position: relative; display: inline-block; margin: 12px;">{{itemId ? "Update Department" : "Costing"}}</h4>
+                              </div>
+                            <div class="col-md-4">
                                 <div class="form-group select-container">
-                                  <label *ngIf="!selectedUserType">{{ labelPlaceholder }}</label>
+                                  <label *ngIf="!selectedcostingMethod">{{ labelcostingMethod }}</label>
                                   <select
-                                    id="userType"
+                                    id="costingMethod"
                                     class="form-control"
-                                    formControlName="userType"
+                                    formControlName="costingMethod"
                                     (change)="updateLabel($event)"
-                                    [(ngModel)]="selectedUserType"
+                                    [(ngModel)]="selectedcostingMethod"
                                   >
                                     <option value="company">company</option>
                                     <option value="Admin">Admin</option>
                                   </select>
                                 </div>
                               </div> 
-                              <div class="col-md-6">
+                              <div class="col-md-4">
                                 <div class="form-group">
-                                    <input type="number" class="form-control" placeholder=" " formControlName="name" [readOnly]="isLoading" />
+                                    <input type="number" class="form-control" placeholder=" " formControlName="costPrice" [readOnly]="isLoading" />
                                     <label for="email" class="form-label">Cost Price</label>
-                                    <div *ngIf="(form.controls['name'].dirty || form.controls['name'].touched)">
-                                        <div class="error" *ngIf="form.controls['name'].errors?.['required']">
-                                            Enter Department name.
+                                    <div *ngIf="(form.controls['costPrice'].dirty || form.controls['costPrice'].touched)">
+                                        <div class="error" *ngIf="form.controls['costPrice'].errors?.['required']">
+                                            Enter Cost Price.
                                         </div>
                                     </div>
                                 </div>
                                 
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <input type="number" class="form-control" placeholder=" " formControlName="name" [readOnly]="isLoading" />
+                                    <input type="number" class="form-control" placeholder=" " formControlName="weightedAverageCourse" [readOnly]="isLoading" />
                                     <label for="email" class="form-label">Weighted Average Course</label>
-                                    <div *ngIf="(form.controls['name'].dirty || form.controls['name'].touched)">
-                                        <div class="error" *ngIf="form.controls['name'].errors?.['required']">
-                                            Enter Department name.
+                                    <div *ngIf="(form.controls['weightedAverageCourse'].dirty || form.controls['weightedAverageCourse'].touched)">
+                                        <div class="error" *ngIf="form.controls['weightedAverageCourse'].errors?.['required']">
+                                            Enter WAC.
                                         </div>
                                     </div>
                                 </div>
                                 
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <input type="number" class="form-control" placeholder=" " formControlName="name" [readOnly]="isLoading" />
+                                    <input type="number" class="form-control" placeholder=" " formControlName="lastPurchasedCost" [readOnly]="isLoading" />
                                     <label for="email" class="form-label">Last Purchased Cost</label>
-                                    <div *ngIf="(form.controls['name'].dirty || form.controls['name'].touched)">
-                                        <div class="error" *ngIf="form.controls['name'].errors?.['required']">
-                                            Enter Department name.
+                                    <div *ngIf="(form.controls['lastPurchasedCost'].dirty || form.controls['lastPurchasedCost'].touched)">
+                                        <div class="error" *ngIf="form.controls['lastPurchasedCost'].errors?.['required']">
+                                            Enter LPC .
                                         </div>
                                     </div>
                                 </div>
@@ -69,50 +73,52 @@
                                 <i class="fal fa-home" style="font-size: 20px;"></i>
                                 <h4 style="position: relative; display: inline-block; margin: 12px;">{{itemId ? "Update Department" : "Add TAX"}}</h4>
                               </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <input type="number" class="form-control" placeholder=" " formControlName="name" [readOnly]="isLoading" />
+                                    <input type="number" class="form-control" placeholder=" " formControlName="vat" [readOnly]="isLoading"
+                                    min="0" max="100" step="0.01"  />
                                     <label for="email" class="form-label">Vat %</label>
-                                    <div *ngIf="(form.controls['name'].dirty || form.controls['name'].touched)">
-                                        <div class="error" *ngIf="form.controls['name'].errors?.['required']">
-                                            Enter Department name.
+                                    <div *ngIf="(form.controls['vat'].dirty || form.controls['vat'].touched)">
+                                        <div class="error" *ngIf="form.controls['vat'].errors?.['required']">
+                                            Enter Vat.
                                         </div>
                                     </div>
                                 </div>
                                 
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <input type="number" class="form-control" placeholder=" " formControlName="name" [readOnly]="isLoading" />
+                                    <input type="number" class="form-control" placeholder=" " formControlName="CGST" [readOnly]="isLoading"    min="0" max="100" step="0.01"  />
                                     <label for="email" class="form-label">CGST %</label>
-                                    <div *ngIf="(form.controls['name'].dirty || form.controls['name'].touched)">
-                                        <div class="error" *ngIf="form.controls['name'].errors?.['required']">
-                                            Enter Department name.
+                                    <div *ngIf="(form.controls['CGST'].dirty || form.controls['CGST'].touched)">
+                                        <div class="error" *ngIf="form.controls['CGST'].errors?.['required']">
+                                            Enter CGST.
                                         </div>
                                     </div>
                                 </div>
                                 
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <input type="number" class="form-control" placeholder=" " formControlName="name" [readOnly]="isLoading" />
+                                    <input type="number" class="form-control" placeholder=" " formControlName="SGST" [readOnly]="isLoading" min="0" max="100" step="0.01" />
                                     <label for="email" class="form-label">SGST %</label>
-                                    <div *ngIf="(form.controls['name'].dirty || form.controls['name'].touched)">
-                                        <div class="error" *ngIf="form.controls['name'].errors?.['required']">
-                                            Enter Department name.
+                                    <div *ngIf="(form.controls['SGST'].dirty || form.controls['SGST'].touched)">
+                                        <div class="error" *ngIf="form.controls['SGST'].errors?.['required']">
+                                            Enter SGST.
                                         </div>
                                     </div>
                                 </div>
                                 
                             </div>
                         
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <input type="number" class="form-control" placeholder=" " formControlName="name" [readOnly]="isLoading" />
+                                    <input type="number" class="form-control" placeholder=" " formControlName="IGST" [readOnly]="isLoading" 
+                                    min="0" max="100" step="0.01" />
                                     <label for="email" class="form-label">IGST %</label>
-                                    <div *ngIf="(form.controls['name'].dirty || form.controls['name'].touched)">
-                                        <div class="error" *ngIf="form.controls['name'].errors?.['required']">
-                                            Enter Department name.
+                                    <div *ngIf="(form.controls['IGST'].dirty || form.controls['IGST'].touched)">
+                                        <div class="error" *ngIf="form.controls['IGST'].errors?.['required']">
+                                            Enter IGST.
                                         </div>
                                     </div>
                                 </div>
@@ -120,35 +126,95 @@
                             </div>
                             
                           
-                            <div class="row ">
-                                <input type="checkbox" id="isActive" formControlName="isActive"/>
-                                <label for="isActive">Tax Included in Cost Price</label>
+                            <div class="col-md-4 ">
+                                <input type="checkbox" id="taxIncludedCostPrice" formControlName="taxIncludedCostPrice"/>
+                                <label for="taxIncludedCostPrice">Tax Included in Cost Price</label>
                                
                               </div>
-                              <div class="row ">
-                                <input type="checkbox" id="isActive" formControlName="isActive"/>
-                                <label for="isActive">Tax Included in Retail Price</label>
+                              <div class="col-md-4 ">
+                                <input type="checkbox" id="taxIncludedRetailPrice" formControlName="taxIncludedRetailPrice"/>
+                                <label for="taxIncludedRetailPrice">Tax Included in Retail Price</label>
                                
                               </div>
-                              <div class="row ">
-                                <input type="checkbox" id="isActive" formControlName="isActive"/>
-                                <label for="isActive">Cess on Tax</label>
+                              <div class="col-md-4 ">
+                                <input type="checkbox" id="cessOnTax" formControlName="cessOnTax"/>
+                                <label for="cessOnTax">Cess on Tax</label>
                                
                               </div>
-                            
-                            <div class="row">
+                              <div style="display: flex; align-items: center; margin: 5px;">
+                                <i class="fal fa-home" style="font-size: 20px;"></i>
+                                <h4 style="position: relative; display: inline-block; margin: 12px;">{{itemId ? "Update Department" : "Extra Info"}}</h4>
+                              </div>
+                              <div class="col-md-4">
                                 <div class="form-group">
-                                    <textarea class="form-control" placeholder=" " formControlName="invoicexml"
-                                        [readOnly]="isLoading"
-                                        style="width: 100%; height: 80px; overflow: auto;"></textarea>
-                                    <label for="email" class="form-label">Remarks</label>
-                                    <div *ngIf="(form.controls['invoicexml'].dirty || form.controls['invoicexml'].touched)">
-                                        <div class="error" *ngIf="form.controls['invoicexml'].errors?.['required']">
-                                            Enter Invoice Xml.
+                                    <input type="number" class="form-control" placeholder=" " formControlName="maxDiscount" [readOnly]="isLoading" 
+                                    min="0" max="100" step="0.01" />
+                                    <label for="email" class="form-label">Max Discount%</label>
+                                    <div *ngIf="(form.controls['maxDiscount'].dirty || form.controls['maxDiscount'].touched)">
+                                        <div class="error" *ngIf="form.controls['maxDiscount'].errors?.['required']">
+                                            Enter Max Dsicount Price.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                           
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input type="date" class="form-control" placeholder=" " formControlName="lastPurchasedDate" [readOnly]="isLoading" />
+                                    <label class="form-label">Last Purchased Date</label>
+                                    <div *ngIf="(form.controls['lastPurchasedDate'].dirty || form.controls['lastPurchasedDate'].touched)">
+                                        <div class="error" *ngIf="form.controls['lastPurchasedDate'].errors?.['required']">
+                                            Select Expense Date
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                                
+                           
+                            
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input type="date" class="form-control" placeholder=" " formControlName="lastSoldDate" [readOnly]="isLoading" />
+                                    <label class="form-label">Expense Date</label>
+                                    <div *ngIf="(form.controls['lastSoldDate'].dirty || form.controls['lastSoldDate'].touched)">
+                                        <div class="error" *ngIf="form.controls['lastSoldDate'].errors?.['required']">
+                                            Select Expense Date
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                
+                            <div style="display: flex; align-items: center; margin: 5px;">
+                                <i class="fal fa-home" style="font-size: 20px;"></i>
+                                <h4 style="position: relative; display: inline-block; margin: 12px;">{{itemId ? "Update Department" : "Commision"}}</h4>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="form-group">
+                                    <input type="number" class="form-control" placeholder=" " formControlName="salesman" [readOnly]="isLoading"
+                                    min="0" max="100" step="0.01"  />
+                                    <label for="email" class="form-label">Salesman%</label>
+                                    <div *ngIf="(form.controls['salesman'].dirty || form.controls['salesman'].touched)">
+                                        <div class="error" *ngIf="form.controls['salesman'].errors?.['required']">
+                                            Enter Salesman.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input type="number" class="form-control" placeholder=" " formControlName="agent" [readOnly]="isLoading" />
+                                    <label for="email" class="form-label">Agent%</label>
+                                    <div *ngIf="(form.controls['agent'].dirty || form.controls['agent'].touched)">
+                                        <div class="error" *ngIf="form.controls['agent'].errors?.['required']">
+                                            Enter Department name.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
                         </div>
                         
                         <div class="text-end mt-3">

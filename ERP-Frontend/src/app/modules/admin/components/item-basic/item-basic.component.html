@@ -11,13 +11,13 @@
         </div>
         <div class="card-body">
             <div class="row">
-                <div class="col-lg-8 col-md-12">
+                <div class=" col-md-10">
                     <form class="animate-labels-form" [formGroup]="form" (ngSubmit)="onSubmit()">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-5">
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder=" " formControlName="name" [readOnly]="isLoading" />
-                                    <label for="email" class="form-label">Department Name</label>
+                                    <label for="email" class="form-label">Name</label>
                                     <div *ngIf="(form.controls['name'].dirty || form.controls['name'].touched)">
                                         <div class="error" *ngIf="form.controls['name'].errors?.['required']">
                                             Enter Department name.
@@ -25,31 +25,29 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="image-box">
-                                    <!-- Add your image tag here -->
-                                    <img src="../../../../../assets/images/img.png" alt="Image Alt Text" style="max-width: 100%; height: 100px;border: 10px solid black;">
-                                    <!-- You can customize the styling of the image box as needed -->
-                                </div>
-                            </div>
-                            <div class="col-md-6">
+                            
+                            <div class="col-md-5">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder=" " formControlName="hod" [readOnly]="isLoading" />
-                                    <label for="email" class="form-label">Head of Department</label>
-                                    <div *ngIf="(form.controls['hod'].dirty || form.controls['hod'].touched)">
-                                        <div class="error" *ngIf="form.controls['hod'].errors?.['required']">
-                                            Enter Head of Department.
+                                    <input type="text" class="form-control" placeholder=" " formControlName="description" [readOnly]="isLoading" />
+                                    <label for="email" class="form-label">Description</label>
+                                    <div *ngIf="(form.controls['description'].dirty || form.controls['description'].touched)">
+                                        <div class="error" *ngIf="form.controls['description'].errors?.['required']">
+                                            Enter Description.
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                           
+                            
+
+                           
+                            <div class="col-md-5">
                                 <div class="form-group select-container">
                                   <label *ngIf="!selectedUserType">{{ labelPlaceholder }}</label>
                                   <select
-                                    id="userType"
+                                    id="type"
                                     class="form-control"
-                                    formControlName="userType"
+                                    formControlName="type"
                                     (change)="updateLabel($event)"
                                     [(ngModel)]="selectedUserType"
                                   >
@@ -59,85 +57,170 @@
                                 </div>
                               </div> 
                              
-                            <div class="col-md-6">
+                            <div class="col-md-5">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder=" " formControlName="name" [readOnly]="isLoading" />
+                                    <input type="text" class="form-control" placeholder=" " formControlName="category" [readOnly]="isLoading" />
                                     <label for="email" class="form-label">Category</label>
-                                    <div *ngIf="(form.controls['name'].dirty || form.controls['name'].touched)">
-                                        <div class="error" *ngIf="form.controls['name'].errors?.['required']">
-                                            Enter Department name.
+                                    <div *ngIf="(form.controls['category'].dirty || form.controls['category'].touched)">
+                                        <div class="error" *ngIf="form.controls['category'].errors?.['required']">
+                                            Enter Category name.
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-5">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder=" " formControlName="name" [readOnly]="isLoading" />
+                                    <input type="text" class="form-control" placeholder=" " formControlName="group" [readOnly]="isLoading" />
                                     <label for="email" class="form-label">Group</label>
-                                    <div *ngIf="(form.controls['name'].dirty || form.controls['name'].touched)">
-                                        <div class="error" *ngIf="form.controls['name'].errors?.['required']">
-                                            Enter Department name.
+                                    <div *ngIf="(form.controls['group'].dirty || form.controls['group'].touched)">
+                                        <div class="error" *ngIf="form.controls['group'].errors?.['required']">
+                                            Enter Group name.
                                         </div>
                                     </div>
                                 </div>
-                                
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-5">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder=" " formControlName="name" [readOnly]="isLoading" />
+                                    <input type="text" class="form-control" placeholder=" " formControlName="manufacturer" [readOnly]="isLoading" />
+                                    <label for="email" class="form-label">Manufacturer</label>
+                                    <div *ngIf="(form.controls['manufacturer'].dirty || form.controls['manufacturer'].touched)">
+                                        <div class="error" *ngIf="form.controls['manufacturer'].errors?.['required']">
+                                            Enter Manufacturer name.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder=" " formControlName="brand" [readOnly]="isLoading" />
+                                    <label for="email" class="form-label">Brand</label>
+                                    <div *ngIf="(form.controls['brand'].dirty || form.controls['brand'].touched)">
+                                        <div class="error" *ngIf="form.controls['brand'].errors?.['required']">
+                                            Enter Brand name.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder=" " formControlName="styleNo" [readOnly]="isLoading" />
                                     <label for="email" class="form-label">Style No</label>
-                                    <div *ngIf="(form.controls['name'].dirty || form.controls['name'].touched)">
-                                        <div class="error" *ngIf="form.controls['name'].errors?.['required']">
-                                            Enter Department name.
+                                    <div *ngIf="(form.controls['styleNo'].dirty || form.controls['styleNo'].touched)">
+                                        <div class="error" *ngIf="form.controls['styleNo'].errors?.['required']">
+                                            Enter Style No name.
                                         </div>
                                     </div>
                                 </div>
-                                
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-5">
+                                <div class="form-group select-container">
+                                  <label *ngIf="!selectedprimaryUOM">{{ labelprimaryUOM }}</label>
+                                  <select
+                                    id="primaryUOM"
+                                    class="form-control"
+                                    formControlName="primaryUOM"
+                                    (change)="updateLabel($event)"
+                                    [(ngModel)]="selectedUserType"
+                                  >
+                                    <option value="company">company</option>
+                                    <option value="Admin">Admin</option>
+                                  </select>
+                                </div>
+                              </div> 
+                              <div class="col-md-5">
+                                <div class="form-group select-container">
+                                  <label *ngIf="!selectedsecondaryUOM">{{ labelsecondaryUOM }}</label>
+                                  <select
+                                    id="secondaryUOM"
+                                    class="form-control"
+                                    formControlName="secondaryUOM"
+                                    (change)="updateLabel($event)"
+                                    [(ngModel)]="selectedUserType"
+                                  >
+                                    <option value="company">company</option>
+                                    <option value="Admin">Admin</option>
+                                  </select>
+                                </div>
+                              </div> 
+                            <div class="col-md-5">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder=" " formControlName="name" [readOnly]="isLoading" />
+                                    <input type="text" class="form-control" placeholder=" " formControlName="HSNCode" [readOnly]="isLoading" />
                                     <label for="email" class="form-label">HSN Code</label>
-                                    <div *ngIf="(form.controls['name'].dirty || form.controls['name'].touched)">
-                                        <div class="error" *ngIf="form.controls['name'].errors?.['required']">
-                                            Enter Department name.
+                                    <div *ngIf="(form.controls['HSNCode'].dirty || form.controls['HSNCode'].touched)">
+                                        <div class="error" *ngIf="form.controls['HSNCode'].errors?.['required']">
+                                            Enter HSNCode name.
                                         </div>
                                     </div>
                                 </div>
                                 
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-5">
                                 <div class="form-group">
-                                    <input type="number" class="form-control" placeholder=" " formControlName="name" [readOnly]="isLoading" />
+                                    <input type="number" class="form-control" placeholder=" " formControlName="orderQuantity" [readOnly]="isLoading" />
                                     <label for="email" class="form-label">Order Quantity</label>
-                                    <div *ngIf="(form.controls['name'].dirty || form.controls['name'].touched)">
-                                        <div class="error" *ngIf="form.controls['name'].errors?.['required']">
-                                            Enter Department name.
+                                    <div *ngIf="(form.controls['orderQuantity'].dirty || form.controls['orderQuantity'].touched)">
+                                        <div class="error" *ngIf="form.controls['orderQuantity'].errors?.['required']">
+                                            Enter Order Quantity.
                                         </div>
                                     </div>
                                 </div>
                                 
                             </div>
-                            <div class="row">
+                            <div class="col-md-5">
                                 <div class="form-group">
-                                    <textarea class="form-control" placeholder=" " formControlName="invoicexml"
-                                        [readOnly]="isLoading"
-                                        style="width: 100%; height: 80px; overflow: auto;"></textarea>
-                                    <label for="email" class="form-label">Remarks</label>
-                                    <div *ngIf="(form.controls['invoicexml'].dirty || form.controls['invoicexml'].touched)">
-                                        <div class="error" *ngIf="form.controls['invoicexml'].errors?.['required']">
-                                            Enter Invoice Xml.
+                                    <input type="number" class="form-control" placeholder=" " formControlName="reOrderQuantity" [readOnly]="isLoading" />
+                                    <label for="email" class="form-label">Re-Order Quantity</label>
+                                    <div *ngIf="(form.controls['reOrderQuantity'].dirty || form.controls['reOrderQuantity'].touched)">
+                                        <div class="error" *ngIf="form.controls['reOrderQuantity'].errors?.['required']">
+                                            Enter Re-Order Quantity .
                                         </div>
                                     </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-md-5">
+                                <input type="checkbox" id="isActive" formControlName="isActive"/>
+                                <label for="isActive"><br> Is Active</label>
+                               
+                              </div>
+
+                            <div class="row">
+                                <div class="col-md-5">
+                                <div class="form-group">
+                                    <textarea class="form-control" placeholder=" " formControlName="remarks"
+                                        [readOnly]="isLoading"  >
+                                    </textarea>
+                                    <label for="email" class="form-label">Remarks</label>
+                                    <div *ngIf="(form.controls['remarks'].dirty || form.controls['remarks'].touched)">
+                                        <div class="error" *ngIf="form.controls['remarks'].errors?.['required']">
+                                            Enter Remarks .
+                                        </div>
+                                    </div>
+                                </div>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="text-end mt-3">
-                            <button type="button" class="btn btn-primary" (click)="cancel()" style="margin-right: 10px;">Cancel</button>
-                            <button type="submit" class="btn btn-primary"[disabled]="form.invalid ||isLoading" ><i *ngIf="isLoading" i class="fa fa-spinner fa-spin"></i> {{isLoading ? "Loading..." : (itemId? "Update" : "Add")}}</button>
-                        </div>
+                        
+                        
                     </form>
+                </div>
+                <div class="col-md-2">
+                    <div class="flex-column align-self-stretch">
+                        <div class="form-group">
+                            <div class="card">
+                                <img src="../../../../../assets/images/img.png" class="card-img-top" alt="...">
+                                <div class="text-end mt-3">
+                                    <button type="button" class="btn btn-primary" (click)="cancel()" style="margin: 5px;">Cancel</button>
+                                    <button type="submit" class="btn btn-primary"[disabled]="form.invalid ||isLoading" ><i *ngIf="isLoading" i class="fa fa-spinner fa-spin"></i> {{isLoading ? "Loading..." : (itemId? "Update" : "Add")}}</button>
+                                </div>
+                            </div>                           
+                        </div>                   
+                    </div>
+                </div>
+                <div class="text-end mt-3">
+                    <button type="button" class="btn btn-primary" (click)="cancel()" style="margin-right: 10px;">Cancel</button>
+                    <button type="submit" class="btn btn-primary"[disabled]="form.invalid ||isLoading" ><i *ngIf="isLoading" i class="fa fa-spinner fa-spin"></i> {{isLoading ? "Loading..." : (itemId? "Update" : "Add")}}</button>
                 </div>
             </div>
         </div>
